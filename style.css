@@ -821,3 +821,73 @@ header.theme-header {
   font-size: 20px;
   cursor: pointer;
 }
+/* --- Comprehensive Mobile Optimization (Breakpoints) --- */
+
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* Drops to 2 columns on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header & Navigation */
+    header {
+        padding: 15px 20px;
+    }
+    
+    nav, .nav-container {
+        flex-direction: column; /* Stacks logo above navigation buttons */
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Buttons */
+    .btn-container {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%; /* Makes buttons full-width for easy finger-tapping */
+        padding: 14px 20px; /* Larger target area for touch screens */
+        text-align: center;
+    }
+
+    /* Typography Scaledown */
+    h1, .section-title, .slider-title {
+        font-size: 28px !important;
+    }
+
+    h2 {
+        font-size: 22px !important;
+    }
+
+    section {
+        padding: 40px 15px; /* Compresses large padding gaps on tiny screens */
+    }
+
+    /* Layout Grids & Cards */
+    .services-grid {
+        grid-template-columns: 1fr; /* Forces cards into a clean, single vertical column */
+        gap: 20px;
+    }
+
+    .card {
+        min-height: auto; /* Dissolves large heights so cards don't overstretch vertically */
+        padding: 20px;
+    }
+
+    /* Slider Component adjustments */
+    .slider-wrapper {
+        margin: 40px auto;
+    }
+
+    .nav-btn {
+        width: 40px; /* Compact arrow keys so they don't cover the images */
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+}
