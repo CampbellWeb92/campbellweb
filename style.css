@@ -451,21 +451,20 @@ section {
 /* --- LEGIBlLITY VISIBILITY HERO SYSTEM --- */
 .hero {
        /* ... keep your existing styles ... */
-    background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(17, 17, 17, 0.9)), 
-    url('hero.png') no-repeat fixed center center/cover;
+  background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(17, 17, 17, 0.9)), 
+                url('hero.png') no-repeat center center/cover;
     animation: zoomBackground 20s ease-in-out infinite alternate;
+    border-bottom: 3px solid var(--accent-gold);
     position: relative;
     width: 100%;
-    min-height: 70vh; /* Gives the background container actual physical height on screen */
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px; 
     box-sizing: border-box;
-    background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(17, 17, 17, 0.9)), 
-                url('hero.png') no-repeat center center/cover;
     border-bottom: 3px solid var(--accent-gold);
 }
 @keyframes zoomBackground {
@@ -474,8 +473,11 @@ section {
 }
 
  .hero h2{
-      color: gold !important;
+       color: gold !important;
     animation: fadeInUp 1s ease-out forwards;
+    /* 5. Fluid Typography Constraint: Prevents large headers from forcing the container to expand */
+    max-width: 800px;
+    margin-bottom: 15px;
  }
 @keyframes fadeInUp {
     from {
@@ -489,24 +491,99 @@ section {
 }
 /* --- Hero Action Button Container Alignment --- */
 .hero-action-container {
+       display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px; /* Trimmed down from 30px to save structural height */
+    width: 100%;
+}
+
+/* --- Base Button Layout Rules --- */
+.hero-btn {
+  display: inline-block;
+    padding: 12px 24px; /* Slightly trimmed down padding for better screen economy */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 13px; /* Slightly lowered text size for structural balance */
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* --- LEGIBlLITY VISIBILITY HERO SYSTEM --- */
+.hero {
+    position: relative;
+    width: 100%;
+    
+    /* 1. Optimized Height: Shrinks space on large screens while safely scaling with content */
+    min-height: 50vh; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /* 2. Tightened Padding: Reduces vertical whitespace by 20px on top and bottom */
+    padding: 60px 20px; 
+    box-sizing: border-box;
+
+    /* 3. Consolidated Background: Cleaned up duplicates with support for zoom animation */
+    background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(17, 17, 17, 0.9)), 
+                url('hero.png') no-repeat center center/cover;
+    animation: zoomBackground 20s ease-in-out infinite alternate;
+    
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+/* 4. Zoom Keyframes: Swapped 'auto' to 'cover' to keep your layout intact during zoom */
+@keyframes zoomBackground {
+    0% { background-size: cover; }
+    100% { background-size: 105%; }
+}
+
+.hero h2 {
+    color: gold !important;
+    animation: fadeInUp 1s ease-out forwards;
+    /* 5. Fluid Typography Constraint: Prevents large headers from forcing the container to expand */
+    max-width: 800px;
+    margin-bottom: 15px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Hero Action Button Container Alignment --- */
+.hero-action-container {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px; /* Trimmed down from 30px to save structural height */
     width: 100%;
 }
 
 /* --- Base Button Layout Rules --- */
 .hero-btn {
     display: inline-block;
-    padding: 14px 30px;
+    padding: 12px 24px; /* Slightly trimmed down padding for better screen economy */
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px; /* Slightly lowered text size for structural balance */
     letter-spacing: 1px;
     text-align: center;
 }
@@ -552,6 +629,22 @@ section {
     border-color: var(--accent-gold);
     color: var(--dark-black);
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+/* 📱 6. Mobile Optimization Polish */
+@media (max-width: 576px) {
+    .hero {
+        min-height: auto; /* Drops minimum sizing bounds on small phone screen frames */
+        padding: 45px 15px; /* Compresses unnecessary spacing completely */
+    }
+    .hero h2 {
+        font-size: 1.8rem; /* Drops heading text size down to prevent text clipping */
+    }
+    .hero-action-container {
+        flex-direction: column; /* Stacks button actions vertically */
+        align-items: stretch;
+        max-width: 280px; /* Keeps stacked items narrow and elegant */
+    }
 }
 
 /* --- CARD COMPONENT STYLES --- */
