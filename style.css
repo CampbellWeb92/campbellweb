@@ -413,6 +413,10 @@ section {
     border-bottom: 3px solid var(--accent-gold);
 }
 
+ .hero h2{
+    color: gold !important;
+ }
+
 /* --- Hero Action Button Container Alignment --- */
 .hero-action-container {
     display: flex;
