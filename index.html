@@ -6,8 +6,172 @@
     <title>Website Design Price List</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <style>  <!-- Mobile Response Backup Rules Embedded to Protect Element Structures -->
+   <style>
+/* Mobile Response Backup Rules Embedded to Protect Element Structures */
   
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; }
+        
+        /* --- GLOBAL WHITE GLOWING HEADERS STYLING --- */
+        h1, h2, h3, .pricing-main-title {
+            color: #FFFFFF !important;
+            text-align: center !important;
+            /* High-utility multi-layered white ambient neon glow */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                         0 0 20px rgba(255, 255, 255, 0.4), 
+                         0 0 30px rgba(255, 255, 255, 0.2) !important;
+            margin-bottom: 20px;
+        }
+
+        /* --- FIXED 3 COLUMNS x 2 ROWS GRID MATRIX --- */
+        .pricing {
+            display: grid;
+            /* Forces exactly 3 equal-width columns on desktop screens */
+            grid-template-columns: repeat(3, 1fr); 
+            /* Explicitly defines exactly 2 rows of equal height */
+            grid-template-rows: repeat(2, 1fr);     
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Ensure card sizing elements scale symmetrically in the matrix */
+        .card {
+            width: 100% !important;
+            height: 100% !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        /* --- MOBILE RESPONSIVE OVERRIDES --- */
+        @media (max-width: 992px) {
+            .pricing {
+                /* Drops down to 2 columns on tablets/medium screens */
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto; /* Removes strict row limits so it can expand down */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pricing {
+                /* Collapses into a single vertical row column on small mobile viewports */
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 20px;
+            }
+        }
+        
+        /* Tiny custom scrollbar adjustments for Webkit engines (Chrome/Safari) */
+        .card ul::-webkit-scrollbar { width: 4px; }
+        .card ul::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.15); border-radius: 4px; }
+
+        .card .btn {
+            width: 100% !important;
+            padding: 10px 0 !important;    /* Compressed button spacing */
+            text-align: center;
+            font-size: 0.85rem !important;
+            margin-top: auto;              /* Clamps the CTA link cleanly to the base of the square card */
+            display: block;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        /* Mobile Viewport Symmetrical Adjustments */
+        @media (max-width: 768px) {
+            .pricing {
+                display: grid !important; /* Overrides the previous vertical linear stack */
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+                gap: 16px !important;
+            }
+            .card {
+                aspect-ratio: 1 / 1 !important; /* Keeps the cards square on phone screens */
+            }
+        }
+        
+        /* --- CENTERED HEADING FOR PRICING MODULE --- */
+        .pricing-header-container {
+            text-align: center;         /* Centers text horizontally */
+            width: 100%;
+            max-width: 800px;
+            margin: 60px auto 20px auto; /* Adds generous top breathing room and frames spacing */
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .pricing-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: blanchedalmond;             /* Matches your brand blue theme color variable */
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .pricing-main-title {
+            font-size: clamp(2rem, 4vw, 2.8rem); /* Dynamically shrinks heading perfectly on phone viewports */
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            line-height: 1.2;
+        }
+
+        /* Premium minimal design separator line under heading title */
+        .title-divider-line {
+            width: 80px;
+            height: 4px;
+            background-color: #f7a000;  /* Matches your brand orange accent theme variable */
+            margin: 0 auto;             /* Centers the divider bar horizontally */
+            border-radius: 2px;
+        }
+        
+        /* Responsive Advertisement Modal Controls */
+        .adv-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(5, 17, 34, 0.85);
+            z-index: 10000;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .adv-modal.show { opacity: 1; visibility: visible; }
+        .adv-content.image-only-content {
+            background-color: #ffffff; padding: 12px; border-radius: 16px;
+            max-width: 440px; width: 90%; position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8); transition: transform 0.4s ease;
+            display: flex; flex-direction: column;
+        }
+        .adv-modal.show .adv-content { transform: scale(1); }
+        .adv-image-container { width: 100%; border-radius: 10px; overflow: hidden; }
+        .adv-popup-img { width: 100%; height: auto; display: block; max-height: 70vh; object-fit: contain; }
+        .adv-action-row { padding: 15px 0 5px 0; text-align: center; }
+        .adv-claim-btn {
+            display: inline-block; background-color: #0b55a1; color: #ffffff;
+            width: 100%; padding: 14px 0; text-decoration: none;
+            font-weight: bold; font-size: 1.1rem; text-transform: uppercase; border-radius: 8px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .adv-claim-btn:hover { background-color: #f7a000; transform: translateY(-2px); }
+        .image-only-content .adv-close-btn {
+            position: absolute; top: -18px; right: -18px; font-size: 2.2rem;
+            background-color: #ffffff; color: #0b55a1; width: 38px; height: 38px;
+            border-radius: 50%; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); line-height: 1; z-index: 10001;
+        }
+        @media (max-width: 480px) {
+            .adv-content.image-only-content { max-width: 340px; }
+            .image-only-content .adv-close-btn { top: -15px; right: 5px; }
+        }
+
+    
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
         
@@ -79,7 +243,6 @@
                 aspect-ratio: 1 / 1 !important; /* Keeps the cards square on phone screens */
             }
         }
-
                 /* --- CENTERED HEADING FOR PRICING MODULE --- */
         .pricing-header-container {
             text-align: center;         /* Centers text horizontally */
@@ -116,37 +279,6 @@
             margin: 0 auto;             /* Centers the divider bar horizontally */
             border-radius: 2px;
         }
-
-/* --- LEGIBlLITY VISIBILITY HERO SYSTEM --- */
-.hero {
-    position: relative;
-    width: 100%;
-    
-    /* CHANGE THIS VALUE TO INCREASE HEIGHT LENGTH */
-    min-height: 100vh; /* Fills 100% of the user's screen height layout */
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    
-    /* Generous top padding keeps text safe under a fixed navbar */
-    padding: 160px 24px 80px 24px; 
-    box-sizing: border-box;
-
-    background: linear-gradient(
-        rgba(10, 10, 10, 0.75), 
-        rgba(10, 10, 10, 0.85)
-    ), url'hero.png'; 
-    
-    background-size: cover;       
-    background-position: center;   
-    background-repeat: no-repeat;  
-    border-bottom: 2px solid var(--gold);
-}
-
-
         /* Responsive Advertisement Modal Controls */
         .adv-modal {
             position: fixed;
@@ -191,6 +323,7 @@
     </style>
 </head>
 <body>
+     <main class="main-content">
     <!-- Advertising Popup Modal -->
 <div id="advModal" class="adv-modal">
   <div class="adv-content image-only-content">
@@ -205,237 +338,211 @@
     
     <!-- Action Button directly underneath the flyer graphic -->
     <div class="adv-action-row">
-      <a href="#contact-target" id="advCtaLink" class="adv-claim-btn">Claim Now</a>
+      <a href="#contact" id="advCtaLink" class="adv-claim-btn">Claim Now</a>
     </div>
   </div>
 </div>
 
-<nav class="navbar">
-    <!-- The anchor tag wraps both the logo image and the text name -->
-    <a href="index.html" class="logo-link">
-        <div class="logo-container">
-            <img src="images/logo.png" alt="CampbellWeb Logo" class="nav-logo">
-            <span class="brand-name">CampbellWeb</span>
+<!-- Match-Pair Structural Header Component -->
+<header class="theme-header">
+    <nav class="nav-container">
+        <!-- Logo anchored in top-left corner -->
+        <div class="logo">
+            <a href="#">
+                <img src="images/logo.png" alt="CampbellWeb Logo" class="logo-img">
+            </a>
         </div>
-    </a>
-</nav>
+        
+        <!-- Navigation Buttons anchored on the right -->
+        <div class="btn-container">
+            <a href="#services" class="btn btn-outline">Services</a>
+            <a href="#projects" class="btn btn-outline">Projects</a>
+            <a href="#contact" class="btn btn-gold">Contact Us</a>
+        </div>
+    </nav>
+</header>
+
 
 <header class="hero">
-    <h1>CampbellWebb</h1>
+    <h1>CampbellWeb</h1>
     <h2>Web Design</h2>
     <p>Professional Webpages and Websites Designed For Your Business</p>
+
     <!-- ADDED: THREE TARGETED ACTION BUTTONS -->
     <div class="hero-action-container">
         <a href="#services" class="hero-btn btn-primary">Services & Pricing</a>
         <a href="#projects" class="hero-btn btn-secondary">Projects</a>
-        <a href="#contact-target" class="hero-btn btn-outline">Contact Us</a>
+        <a href="#contact" class="hero-btn btn-outline">Contact Us</a>
     </div>
 </header><br>
 
-<section class="pricing-header-container"id="services"></section>
-
-    <h2 class="pricing-main-title">Choose Your Design Package</h2>
-    <div class="title-divider-line"></div>
-</div> 
-<!-- --- FIXED ROWS OF 3 GRID SYSTEM --- -->
-<section class="pricing">
-
-    <!-- Card 1 -->
-    <div class="card">
-        <div class="card-title">
-            <i class="fa-solid fa-globe"></i>
-            <h3>Basic Single Page</h3>
-        </div>
-        <div class="price">R1,500</div>
-        <ul>
-            <li>1 Professionally Designed Page</li>
-            <li>Mobile Friendly Design</li>
-            <li>Contact Form</li>
-            <li>Social Media Links</li>
-            <li>Basic SEO</li>
-            <li>1-Year Domain Registration</li>
-            <li>1-Year Hosting</li>
-        </ul>
-        <a href="#contact-target" class="btn">Get Started</a>
+<!-- Unified Layout Matrix Section -->
+<section id="services">
+    <div class="pricing-header-container">
+        <span class="pricing-subtitle">CampbellWeb Packages</span>
+        <h2 class="pricing-main-title">Website Design Price List</h2>
+        <div class="title-divider-line"></div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="card">
-        <div class="card-title">
-            <i class="fa-solid fa-file"></i>
-            <h3>Basic Multi Page</h3>
-        </div>
-        <div class="price">R4,500</div>
-        <ul>
-            <li>Up To 5 Pages</li>
-            <li>Mobile Friendly</li>
-            <li>Contact Form</li>
-            <li>Social Media Integration</li>
-            <li>Basic SEO</li>
-            <li>1-Year Domain</li>
-            <li>1-Year Hosting</li>
-            <li>Additional Pages: R250 Each</li>
-        </ul>
-        <a href="#contact-target" class="btn">Get Started</a>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card">
-        <div class="card-title">
-            <i class="fa-solid fa-rocket"></i>
-            <h3>Landing Page</h3>
-        </div>
-        <div class="price">R1,000</div>
-        <ul>
-            <li>Custom Landing Page</li>
-            <li>Mobile Friendly</li>
-            <li>Lead Capture Form</li>
-            <li>Call To Action Buttons</li>
-            <li>Basic SEO</li>
-            <li>1-Year Domain</li>
-            <li>1-Year Hosting</li>
-        </ul>
-        <a href="#contact-target" class="btn">Get Started</a>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="card">
-        <div class="card-title">
-            <i class="fa-solid fa-id-card"></i>
-            <h3>Digital Business Card</h3>
-        </div>
-        <div class="price">R500</div>
-        <ul>
-            <li>1 Sleek Digital Card</li>
-            <li>Tap to Call & Email</li>
-            <li>Social Links Integration</li>
-            <li>QR Code Accessible</li>
-            <li>Fast Mobile Loading</li>
-            <li>1-Year Hosting</li>
-        </ul>
-        <a href="#contact-target" class="btn">Get Started</a>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="card">
-        <div class="card-title">
-            <i class="fa-solid fa-pencil"></i>
-            <h3>Minor Updates</h3>
-        </div>
-        <div class="price">R150</div>
-        <ul>
-            <li>Minor Information Updates</li>
-            <li>Contact Details</li>
-            <li>Adverts</li>
-            <li>Change of Headings</li>
-            <li>Change of Text</li>
-            <li>Change of Images</li>
-        </ul>
-        <a href="#contact-target" class="btn">Get Started</a>
-    </div>
-
-    <!-- Card 6: PAYMENT TERMS EMBEDDED WITH MATCHING CARD STYLE -->
-    <div class="card terms-card">
-        <div class="card-title">
-            <i class="fa-solid fa-credit-card"></i>
-            <h3>Payment Terms</h3>
-        </div>
-        <div class="price" style="font-size: 1.1rem; color: #555;">Terms & Conditions</div>
-        <ul>
-            <li>50% Deposit required upfront to start.</li>
-            <li>Remaining balance due upon final approval.</li>
-            <li>Monthly hosting packages billed via debit order.</li>
-            <li>Turnaround times depend on layout complexity.</li>
-            <li>All asset copies must be supplied by the client.</li>
-        </ul>
-        <a href="#contact-target" class="btn btn-terms">View Details</a>
-    </div>
-        <!-- Insert right beneath the closing div of your last card (Card 6) -->
-    </div> 
-</section>
-
-</section>
-<section class="gallery-section"id="projects"></section>
-  <h2 class="gallery-title">Our Recent Projects</h2><br>
-
-  <div class="gallery-container">
-    <!-- Navigation Buttons -->
-    <button class="gallery-btn prev-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
-    <button class="gallery-btn next-btn" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+ <!-- Unified Layout Matrix Section -->
+<section id="services">
     
-    <!-- Outer Viewport Wrapper -->
-    <div class="gallery-slider-wrapper">
-      <!-- Inner Track holding all 10 pages -->
-      <div class="gallery-track" id="galleryTrack">
-        <!-- Page 1 -->
-        <div class="gallery-slide">
-          <img src="images/project1.png" alt="Project 1">
-          <div class="slide-caption"><h3>White Lily</h3></div>
+    <!-- The Symmetrical 3x2 Matrix Layout Container -->
+    <div class="services-grid">
+
+        <!-- Card 1: Basic Single-Page Website -->
+        <div class="card">
+            <div class="card-content">
+                <h3>🌐 Basic Single-Page Website</h3>
+                <div class="price-tag">R1,500</div>
+                <ul>
+                    <li>1 professionally designed page</li>
+                    <li>Mobile-friendly design</li>
+                    <li>Contact form</li>
+                    <li>Social media links</li>
+                    <li>Basic SEO setup</li>
+                    <li>1-year domain registration</li>
+                    <li>1-year hosting</li>
+                </ul>
+            </div>
+            <a href="#contact" class="btn btn-gold">Select Package</a>
         </div>
-        <!-- Page 2 -->
-        <div class="gallery-slide">
-          <img src="images/project2.png" alt="Project 2">
-          <div class="slide-caption"><h3>White Lily 2</h3></div>
+
+        <!-- Card 2: Basic Multi-Page Website -->
+        <div class="card">
+            <div class="card-content">
+                <h3>🌐 Basic Multi-Page Website</h3>
+                <div class="price-tag">R4,500</div>
+                <ul>
+                    <li>Up to 5 pages</li>
+                    <li>Mobile-friendly design</li>
+                    <li>Contact form</li>
+                    <li>Social media integration</li>
+                    <li>Basic SEO setup</li>
+                    <li>1-year domain registration</li>
+                    <li>1-year hosting</li>
+                    <li class="add-on">Additional pages: R250 per page</li>
+                </ul>
+            </div>
+            <a href="#contact" class="btn btn-gold">Select Package</a>
         </div>
-        <!-- Page 3 -->
-        <div class="gallery-slide">
-          <img src="images/project3.png" alt="Project 3">
-          <div class="slide-caption"><h3>White Lily 3</h3></div>
+
+        <!-- Card 3: Landing Page -->
+        <div class="card">
+            <div class="card-content">
+                <h3>🚀 Landing Page</h3>
+                <div class="price-tag">R1,000</div>
+                <ul>
+                    <li>Custom landing page</li>
+                    <li>Mobile-friendly design</li>
+                    <li>Lead capture/contact form</li>
+                    <li>Call-to-action buttons</li>
+                    <li>Basic SEO setup</li>
+                    <li>1-year domain registration</li>
+                    <li>1-year hosting</li>
+                </ul>
+            </div>
+            <a href="#contact" class="btn btn-gold">Select Package</a>
         </div>
-        <!-- Page 4 -->
-        <div class="gallery-slide">
-          <img src="images/project4.png" alt="Project 4">
-          <div class="slide-caption"><h3>Massage by Ash</h3></div>
+
+        <!-- Card 4: Digital Business Card -->
+        <div class="card">
+            <div class="card-content">
+                <h3>💼 Digital Business Card</h3>
+                <div class="price-tag">R500</div>
+                <ul>
+                    <li>Custom digital business card</li>
+                    <li>Click-to-call & WhatsApp buttons</li>
+                    <li>Email and social media links</li>
+                    <li>Google Maps location</li>
+                    <li>QR code</li>
+                    <li>1-year domain registration</li>
+                    <li>1-year hosting</li>
+                </ul>
+            </div>
+            <a href="#contact" class="btn btn-gold">Select Package</a>
         </div>
-        <!-- Page 5 -->
-        <div class="gallery-slide">
-          <img src="images/project5.png" alt="Project 5">
-          <div class="slide-caption"><h3>Massage by Ash 2</h3></div>
+
+        <!-- Card 5: Minor Updates (FIXED Tag Slashes and Container Nesting) -->
+        <div class="card">
+            <div class="card-content">
+                <h3><i class="fa-solid fa-pencil"></i> Minor Updates</h3>
+                <div class="price-tag">R150</div>
+                <ul>
+                    <li>Minor Information Updates</li>
+                    <li>Contact Details</li>
+                    <li>Adverts</li>
+                    <li>Change of Headings</li>
+                    <li>Change of Text</li>
+                    <li>Change of Images</li>
+                </ul>
+            </div>
+            <a href="#contact" class="btn btn-gold">Get Started</a>
         </div>
-        <!-- Page 6 -->
-        <div class="gallery-slide">
-          <img src="images/project6.jpg" alt="Project 6">
-          <div class="slide-caption"><h3>Massage by Ash 3</h3></div>
+
+        <!-- Card 6: Payment Terms (FIXED Comments, Typography & Structural Dividers) -->
+        <div class="card payment-card">
+            <div class="card-content">
+                <h3><i class="fa-solid fa-credit-card"></i> Payment Terms</h3>
+                <div class="price-tag" style="font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Terms & Conditions</div>
+                <ul>
+                    <li>50% Deposit required upfront to start.</li>
+                    <li>Remaining balance due upon final approval.</li>
+                    <li>Monthly hosting packages billed via debit order.</li>
+                    <li>Turnaround times depend on layout complexity.</li>
+                    <li>All asset copies must be supplied by the client.</li>
+                </ul>
+            </div>
+            <a href="#contact" class="btn btn-outline">View Details</a>
         </div>
-        <!-- Page 7 -->
-        <div class="gallery-slide">
-          <img src="images/7.jpg" alt="Project 7">
-          <div class="slide-caption"><h3>Massage by Ash 4</h3></div>
-        </div> 
-        <!-- Page 8 -->
-        <div class="gallery-slide">
-          <img src="images/project8.png" alt="Project 8">
-          <div class="slide-caption"><h3>CampbellWeb</h3></div>
+
+    </div> <!-- Close .services-grid -->
+</section> <!-- Close #services section wrapper -->
+
+
+<!-- Centered Gallery Component Wrapper -->
+    <div class="slider-wrapper" id="projects">
+        <h2 class="slider-title">Project Gallery</h2>
+        
+        <div class="slider-container">
+            <div class="slider-track" id="sliderTrack">
+                <div class="slide"><img src="images/project1.png"alt="Project 1"></div>
+                <div class="slide"><img src="images/project2.png" alt="Project 2"></div>
+                <div class="slide"><img src="images/project3.png" alt="Project 3"></div>
+                <div class="slide"><img src="images/project4.png" alt="Project 4"></div>
+                <div class="slide"><img src="images/project5.png" alt="Project 5"></div>
+                <div class="slide"><img src="images/project6.jpg" alt="Project 6"></div>
+                <div class="slide"><img src="images/7.jpg" alt="Project 7"></div>
+                <div class="slide"><img src="images/project8.png" alt="Project 8"></div>
+                <div class="slide"><img src="images/9.png" alt="Project 9"></div>
+                <div class="slide"><img src="images/10.png" alt="Project 10"></div>
+                <div class="slide"><img src="https://picsum.photos" alt="Project 11"></div>
+                <div class="slide"><img src="https://picsum.photos" alt="Project 12"></div>
+            </div>
+
+            <button class="nav-btn prev-btn" id="prevBtn" aria-label="Previous Slide">&#10094;</button>
+            <button class="nav-btn next-btn" id="nextBtn" aria-label="Next Slide">&#10095;</button>
+
+            <div class="dots-container" id="dotsContainer"></div>
         </div>
-        <!-- Page 9 -->
-        <div class="gallery-slide">
-          <img src="images/9.png" alt="Project 9">
-          <div class="slide-caption"><h3>Ryan Melrose Massage</h3></div>
-        </div>
-        <!-- Page 10 -->
-        <div class="gallery-slide">
-          <img src="images/10.png" alt="Project 10">
-          <div class="slide-caption"><h3>Ryan Melrose Massage 2</h3></div>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
 
-<!-- Check that it says id="contact-target" exactly, without a # inside the quotes -->
-<section class="contact-section" id="contact-target">
+        <!-- Dynamic Indicator Dots Grid -->
+        <div class="dots-container" id="dotsContainer"></div>
+    </div>
+</div>
 
-    <!-- ADDED: WHITE CONTACT US HEADER ABOVE THE CARD -->
+
     <div class="custom-contact-header">
-        <h2 class="contact-title-white">Contact us</h2>
+       
         <div class="contact-title-underline"></div>
     </div><br><br>
 
-    <!-- YOUR EXISTING CONTACT CARD WORKSPACE START -->
+    <section id="contact" class="contact-section">
     <div class="contact-card">
         <div class="contact-header">
-            <i class="fa-solid fa-address-card"></i>
-            <h3>Get In Touch</h3>
+            <i class="fa-solid fa-address-card header-icon"></i>
+            <h2>Get in Touch Us</h2>
             <p>We would love to look over your next digital project layout.</p>
         </div>
         
@@ -447,8 +554,9 @@
                 </div>
                 <div class="contact-details">
                     <span>Call Us Directly</span>
-                    <strong>060 6990 845</strong>
+                    <strong>060 699 0845</strong>
                 </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
             </a>
 
             <!-- WhatsApp Instant Chat Row -->
@@ -460,6 +568,7 @@
                     <span>WhatsApp Instant Chat</span>
                     <strong>Chat Live Now</strong>
                 </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
             </a>
 
             <!-- Email Mailto Hub Row -->
@@ -471,100 +580,83 @@
                     <span>Send An Email</span>
                     <strong>infocampbellweb@gmail.com</strong>
                 </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
             </a>
         </div>
     </div>
 </section>
 
 
+    <script src="script.js"></script>
 <script>
-  // This wrapper guarantees the code waits until the buttons physically exist
-  document.addEventListener('DOMContentLoaded', () => {
-    const track = document.getElementById('galleryTrack');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("sliderTrack");
+    if (!track) return;
+    const slides = Array.from(track.children);
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const dotsContainer = document.getElementById("dotsContainer");
     
     let currentIndex = 0;
-    const totalSlides = 10;
+    const totalSlides = slides.length;
 
-    function updateSlidePosition() {
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    // 1. Programmatically assemble matching tracking indicators
+    slides.forEach((_, index) => {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        if (index === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => navigateToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsContainer.children);
+
+    // 2. Perform the mathematical structural shift
+    function updateSliderPosition() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update live tracking dot arrays
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+        });
     }
 
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < totalSlides - 1) {
-        currentIndex++;
-      } else {
-        currentIndex = 0; 
-      }
-      updateSlidePosition();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-      } else {
-        currentIndex = totalSlides - 1; 
-      }
-      updateSlidePosition();
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const backToTopBtn = document.getElementById('backToTopBtn');
-
-    // Show the button when scrolling past 300px
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
-      } else {
-        backToTopBtn.classList.remove('show');
-      }
-    });
-
-    // Smoothly scroll back up to the top when clicked
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  });
-  document.addEventListener('DOMContentLoaded', () => {
-  const advModal = document.getElementById('advModal');
-  const closeAdvBtn = document.getElementById('closeAdvBtn');
-  const advCtaLink = document.getElementById('advCtaLink');
-
-  // Launch popup visibility states
-  advModal.classList.add('show');
-
-  function closeAdvert() {
-    advModal.classList.remove('show');
-  }
-
-  // Bind close action elements
-  closeAdvBtn.addEventListener('click', closeAdvert);
-  advCtaLink.addEventListener('click', closeAdvert);
-
-  // Close modal if user clicks gray backdrop zone
-  window.addEventListener('click', (e) => {
-    if (e.target === advModal) {
-      closeAdvert();
+    function navigateToSlide(index) {
+        currentIndex = index;
+        updateSliderPosition();
     }
-  });
+
+    // 3. Execution event triggers with built-in layout wrap guards
+    nextBtn.addEventListener("click", () => {
+        if (currentIndex < totalSlides - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Return cleanly to start index point
+        }
+        updateSliderPosition();
+    });
+
+    prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = totalSlides - 1; // Direct jump back to the 12th card item
+        }
+        updateSliderPosition();
+    });
 });
 
- 
 </script>
-
+<!-- Back to Top Button Component -->
+<a href="#" class="back-to-top" id="backToTopBtn" aria-label="Scroll back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+</a>
+</main>
+<!-- Your Footer -->
 <footer>
-    <p>© Copyright 2026 CampbellWeb</p>
+    <p>© Copyright 2026 <span>CampbellWeb</span></p>
 </footer>
 
-<!-- Back to Top Button -->
-<button id="backToTopBtn" class="back-to-top" title="Go to top">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
 </body>
 </html>
         
