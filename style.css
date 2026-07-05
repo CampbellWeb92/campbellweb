@@ -891,33 +891,59 @@ header.theme-header {
     .prev-btn { left: 10px; }
     .next-btn { right: 10px; }
 }
-/* --- Aggressive Mobile Fix for Oversized Cards --- */
+/* --- Corrected Full-Width Mobile Viewports --- */
 @media (max-width: 768px) {
-    /* Enforce a single column layout that cannot exceed screen boundaries */
+    /* 1. Reset Master Containers to allow infinite vertical scrolling */
+    html, body {
+        height: auto !important; /* Prevents layout clipping on long pages */
+    }
+
+    section {
+        padding: 40px 15px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important; /* FIXED: Restores visibility to clipped components */
+    }
+
+    /* 2. Grid & Cards Configuration (Full Display) */
     .services-grid {
         display: flex !important;
         flex-direction: column !important;
-        grid-template-columns: none !important;
         width: 100% !important;
-        max-width: 100% !important;
-        gap: 15px !important;
-        padding: 0 !important;
+        gap: 20px !important;
     }
 
-    /* Force cards to fit fluidly and drop desktop height padding specifications */
     .card, .card.payment-card {
         width: 100% !important;
         max-width: 100% !important;
-        min-height: 0 !important; /* Strips out the desktop 480px restriction */
-        height: auto !important;   /* Let text content determine height naturally */
-        padding: 20px 15px !important;
-        box-sizing: border-box !important;
+        min-height: unset !important; /* Erases restrictive desktop heights */
+        height: auto !important;      /* Let cards expand to display all internal text */
+        padding: 24px 20px !important;
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2) !important;
     }
 
-    /* Ensure parent layout wrappers don't squeeze elements inward */
-    section {
-        padding: 30px 15px !important;
+    /* 3. Slider & Gallery Component (Full-Width Display) */
+    .slider-wrapper {
         width: 100% !important;
-        overflow: hidden !important; /* Clips accidental horizontal layouts */
+        max-width: 100% !important;
+        margin: 30px auto !important;
+        padding: 0 !important; /* Removes outer squeezing padding */
+    }
+
+    .slider-container {
+        border-radius: 6px !important; /* Slightly rounded edges for small screens */
+        width: 100% !important;
+    }
+
+    .slide img {
+        max-height: 350px !important; /* Prevents tall imagery from pushing past viewport heights */
+        object-fit: cover !important; 
+        width: 100% !important;
+    }
+
+    .nav-btn {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 14px !important;
     }
 }
