@@ -897,3 +897,14 @@ footer span {
     right: 6px;
   }
 }
+
+
+/* Slider button reliability fixes */
+.slider-container {
+  touch-action: pan-y;
+}
+
+.nav-btn,
+.dot {
+  pointer-events: auto;
+}
