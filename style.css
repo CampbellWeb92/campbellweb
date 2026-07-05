@@ -811,55 +811,29 @@ header.theme-header {
     object-fit: contain;
     filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4)); /* Subtle ambient gold logo outline flare */
 }
-/* ==========================================================================
-   BACK TO TOP BUTTON
-   ========================================================================== */
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 9999; /* Ensures it sits over layout items */
-    background-color: var(--primary-blue);
-    color: var(--accent-gold);
-    border: 2px solid var(--accent-gold);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-    transition: all 0.3s ease;
-    opacity: 0; /* Hidden by default until user scrolls */
-    pointer-events: none; /* Disables clicking while invisible */
+
+#backToTop {
+  display: none;            /* Hidden by default */
+  position: fixed;          /* Fixed position relative to viewport */
+  bottom: 20px;             /* 20px from the bottom */
+  right: 20px;              /* 20px from the right */
+  z-index: 9999;            /* Ensure it sits on top of all elements */
+  border: gold;             /* Remove default borders */
+  outline: none;            /* Remove outline */
+  background-color: #221a94;   /* Button color */
+  color: gold;             /* Arrow color */
+  cursor: pointer;          /* Pointer cursor on hover */
+  padding: 15px;            /* Button size padding */
+  border-radius: 50px;      /* Make it a circle */
+  font-size: 18px;          /* Size of the arrow */
+  width: 50px;
+  height: 50px;
+  transition: background-color 0.3s; /* Smooth hover transition */
 }
 
-/* Show class applied by JavaScript */
-.back-to-top.show {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Interactive Hover States */
-.back-to-top:hover {
-    background-color: var(--accent-gold);
-    color: var(--dark-black);
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px var(--accent-gold);
-}
-
-/* Mobile Breakpoint Optimizations */
-@media (max-width: 768px) {
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 44px; /* Slightly smaller footprint on touch surfaces */
-        height: 44px;
-        font-size: 20px;
-    }
+/* Hover effect */
+#backToTop:hover {
+  background-color: #555;   /* Darken button on hover */
 }
 
 /* --- Comprehensive Mobile Optimization (Breakpoints) --- */

@@ -374,7 +374,7 @@
 <section id="services">
     <div class="pricing-header-container">
         <span class="pricing-subtitle">CampbellWeb Packages</span>
-        <h2 class="pricing-main-title">Website Design Price List</h2>
+        <h2 class="pricing-main-title">Web Design Price List</h2>
         <div class="title-divider-line"></div>
     </div>
 
@@ -639,6 +639,22 @@
         updateSliderPosition();
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const backToTopBtn = document.getElementById("backToTop");
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopBtn.style.display = "block";
+        } else {
+            backToTopBtn.style.display = "none";
+        }
+    };
+
+    backToTopBtn.addEventListener("click", function() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
+
 
 </script>
 </div>
@@ -648,7 +664,9 @@
 <footer>
     <p>© Copyright 2026 <span>CampbellWeb</span></p>
 </footer>
-<a href="#" id="backToTop" class="back-to-top" aria-label="Scroll to top">&#8593;</a>
+<!-- Back to Top Button -->
+<button id="backToTop" title="Go to top">↑</button>
+
 </body>
 </html>
         
