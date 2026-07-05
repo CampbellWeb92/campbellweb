@@ -364,6 +364,10 @@ section {
 
 /* All cards sharing uniform size constraints */
 .card {
+    /* Ensures smooth animation transitions when mouse enters and leaves the card area */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                border-color 0.3s ease !important;
     background-color: var(--light-white);
     border-top: 5px solid var(--primary-blue);
     border-radius: 8px;
@@ -374,6 +378,17 @@ section {
     justify-content: space-between;
     min-height: 480px; /* Forces identical structural heights */
     color: #0A2540;
+}
+
+/* Hover State Trigger Triggered Symmetrically Across All Cards */
+.card:not(.structural-spacer):hover {
+    transform: translateY(-8px); /* Elegantly lifts the card up off the screen layout canvas */
+    border-color: var(--accent-gold) !important; /* Highlights top boundary border line to gold */
+    
+    /* Multilayered ambient golden outer neon structural glow overlay box-shadow */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), 
+                0 0 20px rgba(212, 175, 55, 0.4), 
+                0 0 40px rgba(212, 175, 55, 0.2) !important;
 }
 
 /* Highlight the payments card distinctively */
