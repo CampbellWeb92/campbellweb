@@ -42,3 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+window.addEventListener('scroll', function() {
+    const scrollBtn = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        scrollBtn.classList.add('show');
+    } else {
+        scrollBtn.classList.remove('show');
+    }
+});
