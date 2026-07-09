@@ -137,6 +137,7 @@
       </a>
 
       <div class="nav-links">
+         <a href="#why-website">Why Do You Need A Website?</a>
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
@@ -158,6 +159,89 @@
         </div>
       </div>
     </section>
+
+    <section class="website-benefits-section" id="why-website">
+  <div class="website-benefits-container">
+    <p class="section-label">Online Presence</p>
+    <h2>Why Do You Need a Website?</h2>
+    <p class="section-intro">
+      Having a website offers many advantages for individuals, businesses, organizations, and professionals.
+      It helps build trust, increase visibility, and create more opportunities online.
+    </p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span>01</span>
+        <h3>Establishes Credibility</h3>
+        <p>A website helps people find and trust you, making your business look more legitimate and professional.</p>
+      </div>
+
+      <div class="benefit-card">
+        <span>02</span>
+        <h3>Available 24/7</h3>
+        <p>Your website is accessible anytime, allowing visitors to learn about your products or services from anywhere.</p>
+      </div>
+
+      <div class="benefit-card">
+        <span>03</span>
+        <h3>Expands Your Reach</h3>
+        <p>A website helps you reach people beyond your local area through search engines and social media.</p>
+      </div>
+
+      <div class="benefit-card">
+        <span>04</span>
+        <h3>Cost-Effective Marketing</h3>
+        <p>Showcase products, publish articles, collect leads, and promote special offers affordably.</p>
+      </div>
+
+      <div class="benefit-card">
+        <span>05</span>
+        <h3>Improves Customer Service</h3>
+        <p>Use FAQs, contact forms, chat features, and information pages to answer common questions quickly.</p>
+      </div>
+
+      <div class="benefit-card">
+        <span>06</span>
+        <h3>Increases Sales Opportunities</h3>
+        <p>Generate leads, accept bookings, process payments, and promote related products or services.</p>
+      </div>
+
+      <div class="benefit-card">
+        <span>07</span>
+        <h3>Enhances Brand Awareness</h3>
+        <p>Your website becomes a central hub for your brand, design, messaging, and business identity.</p>
+      </div>
+
+      <div class="benefit-card">
+        <span>08</span>
+        <h3>Provides Valuable Insights</h3>
+        <p>Analytics show visitor numbers, traffic sources, popular pages, and customer interests.</p>
+      </div>
+
+      <div class="benefit-card">
+        <span>09</span>
+        <h3>Showcases Your Work</h3>
+        <p>Display projects, testimonials, case studies, certifications, and achievements professionally.</p>
+      </div>
+
+      <div class="benefit-card">
+        <span>10</span>
+        <h3>Gives You Control</h3>
+        <p>You own your content, design, and functionality without depending only on social media platforms.</p>
+      </div>
+    </div>
+
+    <div class="examples-box">
+      <h3>Examples</h3>
+      <div class="examples-list">
+        <p><strong>Small business:</strong> Attract local customers and accept bookings.</p>
+        <p><strong>Freelancer:</strong> Display a portfolio and gain clients.</p>
+        <p><strong>Nonprofit:</strong> Share your mission and collect donations.</p>
+        <p><strong>Personal brand:</strong> Build an audience and showcase expertise.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="services" class="services-section">
       <div class="pricing-header-container">
@@ -367,13 +451,14 @@
         });
       }
 
-      if (logoLink) {
-        logoLink.addEventListener("click", (e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: "smooth" });
+   if (logoLink) {
+    logoLink.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
         });
-      }
-
+    });
+}
       if (backToTopBtn) {
         const toggleBackToTop = () => {
           if (window.scrollY > 300) {
