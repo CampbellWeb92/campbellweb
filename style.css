@@ -933,8 +933,8 @@ footer span {
   }
 
   .logo-img {
-    width: 72px; /* Prevent large logo images from hogging viewport height */
-    height: 72px;
+    width: 120px;
+    height: 120px;
   }
 
   .nav-links {
