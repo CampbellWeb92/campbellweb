@@ -1,446 +1,365 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CampbellWeb | Web Design Price List</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampbellWeb | Web Design Price List</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
 
-  <style>
-    .back-to-top {
-      position: fixed;
-      right: 25px;
-      bottom: 25px;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: #0A2540;
-      color: #ffffff;
-      border: 2px solid #D4AF37;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1;
-      box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
-      z-index: 99999;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform: translateY(10px);
-      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .back-to-top:hover {
-      background: #D4AF37;
-      color: #0A2540;
-      transform: translateY(-4px);
-      box-shadow: 0 0 24px rgba(212, 175, 55, 0.8);
-    }
-
-
-    /* Silver shimmer effect for the hero content box */
-    .hero-content {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      border: 1px solid rgba(192, 192, 192, 0.65);
-      background: linear-gradient(135deg, rgba(10, 37, 64, 0.78), rgba(17, 17, 17, 0.82));
-      box-shadow: 0 0 24px rgba(192, 192, 192, 0.28), 0 0 38px rgba(212, 175, 55, 0.18);
-    }
-
-    .hero-content::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      z-index: -1;
-      border-radius: inherit;
-      background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.08) 28%,
-        rgba(230, 230, 230, 0.75) 45%,
-        rgba(255, 255, 255, 0.95) 50%,
-        rgba(230, 230, 230, 0.75) 55%,
-        rgba(255, 255, 255, 0.08) 72%,
-        transparent 100%
-      );
-      transform: translateX(-130%) skewX(-18deg);
-      animation: silverShimmer 4s ease-in-out infinite;
-      opacity: 0.75;
-      pointer-events: none;
-    }
-
-    .hero-content::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      border-radius: inherit;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 35%);
-      pointer-events: none;
-    }
-
-    @keyframes silverShimmer {
-      0% { transform: translateX(-130%) skewX(-18deg); }
-      45%, 100% { transform: translateX(130%) skewX(-18deg); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-content::before {
-        animation: none;
-        opacity: 0.18;
-        transform: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .back-to-top {
-        right: 18px;
-        bottom: 18px;
-        width: 46px;
-        height: 46px;
-        font-size: 24px;
-      }
-    }
-  </style>
 </head>
 <body>
-  <div id="advModal" class="adv-modal" aria-hidden="true">
-    <div class="adv-content image-only-content" role="dialog" aria-label="CampbellWeb discount advert">
-      <button id="closeAdvBtn" class="adv-close-btn" type="button" aria-label="Close advert">&times;</button>
-
-      <div class="adv-image-container">
-        <img src="images/flyer.png" alt="CampbellWeb Discount Flyer" class="adv-popup-img">
-      </div>
-
-      <div class="adv-action-row">
-        <a href="#contact" id="advCtaLink" class="adv-claim-btn">Claim Now</a>
-      </div>
-    </div>
-  </div>
-
-  <header class="theme-header">
-    <nav class="nav-container" aria-label="Main navigation">
-      <a href="#top" class="logo" aria-label="CampbellWeb home">
-        <img src="images/logo.png" alt="CampbellWeb Logo" class="logo-img">
-      </a>
-
-      <div class="nav-links">
-         <a href="#why-website">Why Do You Need A Website?</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <main id="top" class="main-content">
-    <section class="hero" aria-label="CampbellWeb introduction">
-      <div class="hero-content">
-        <h1>CampbellWeb</h1>
-        <h2>Web Development and Design</h2>
-        <p>Professional Webpages and Websites Designed For Your Business</p>
-
-        <div class="hero-action-container">
-<div class="hero-action-container">
-  <a href="#why-website" class="hero-btn btn-primary">Why Do You Need A Website?</a>
-  <a href="#services" class="hero-btn btn-secondary">Services &amp; Pricing</a>
-  <a href="#projects" class="hero-btn  btn-outline">Projects</a>
-  <a href="#contact" class="hero-btn btn-primary">Contact Us</a>
+<div aria-hidden="true" class="adv-modal" id="advModal">
+<div aria-label="CampbellWeb discount advert" class="adv-content image-only-content" role="dialog">
+<button aria-label="Close advert" class="adv-close-btn" id="closeAdvBtn" type="button">×</button>
+<div class="adv-image-container">
+<img alt="CampbellWeb Discount Flyer" class="adv-popup-img" src="images/flyer.png"/>
 </div>
-        </div>
-      </div>
-    </section>
+<div class="adv-action-row">
+<a class="adv-claim-btn" href="#contact" id="advCtaLink">Claim Now</a>
+</div>
+</div>
+</div>
+<header class="theme-header">
+<nav aria-label="Main navigation" class="nav-container">
+<a aria-label="CampbellWeb home" class="logo" href="#top">
+<img alt="CampbellWeb Logo" class="logo-img" src="images/logo.png"/>
+</a>
+<div class="nav-links">
+<a href="#why-website">Why a Website?</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+</header>
+<main class="main-content" id="top">
+<section aria-label="CampbellWeb introduction" class="hero">
+<div class="hero-content">
+<h1>CampbellWeb</h1>
+<h2>Web Development and Design</h2>
+<p>Professional Webpages and Websites Designed For Your Business</p>
 
-    <section class="website-benefits-section" id="why-website">
-  <div class="website-benefits-container">
-    <p class="section-label">Online Presence</p>
-    <h2>Why Do You Need a Website?</h2>
-    <p class="section-intro">
+<div class="hero-action-container">
+<a class="hero-btn btn-primary" href="#services">View Packages</a>
+<a class="hero-btn btn-outline" href="#projects">View Projects</a>
+</div>
+<a class="hero-text-link" href="#why-website">Why does your business need a website?</a>
+
+</div>
+</section>
+<section class="website-benefits-section" id="why-website">
+<div class="website-benefits-container">
+<p class="section-label">Online Presence</p>
+<h2>Why Do You Need a Website?</h2>
+<p class="section-intro">
       Having a website offers many advantages for individuals, businesses, organizations, and professionals.
       It helps build trust, increase visibility, and create more opportunities online.
     </p>
+<div class="benefits-grid">
+<div class="benefit-card">
+<span>01</span>
+<h3>Establishes Credibility</h3>
+<p>A website helps people find and trust you, making your business look more legitimate and professional.</p>
+</div>
+<div class="benefit-card">
+<span>02</span>
+<h3>Available 24/7</h3>
+<p>Your website is accessible anytime, allowing visitors to learn about your products or services from anywhere.</p>
+</div>
+<div class="benefit-card">
+<span>03</span>
+<h3>Expands Your Reach</h3>
+<p>A website helps you reach people beyond your local area through search engines and social media.</p>
+</div>
+<div class="benefit-card">
+<span>04</span>
+<h3>Cost-Effective Marketing</h3>
+<p>Showcase products, publish articles, collect leads, and promote special offers affordably.</p>
+</div>
+<div class="benefit-card">
+<span>05</span>
+<h3>Improves Customer Service</h3>
+<p>Use FAQs, contact forms, chat features, and information pages to answer common questions quickly.</p>
+</div>
+<div class="benefit-card">
+<span>06</span>
+<h3>Increases Sales Opportunities</h3>
+<p>Generate leads, accept bookings, process payments, and promote related products or services.</p>
+</div>
 
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <span>01</span>
-        <h3>Establishes Credibility</h3>
-        <p>A website helps people find and trust you, making your business look more legitimate and professional.</p>
-      </div>
 
-      <div class="benefit-card">
-        <span>02</span>
-        <h3>Available 24/7</h3>
-        <p>Your website is accessible anytime, allowing visitors to learn about your products or services from anywhere.</p>
-      </div>
 
-      <div class="benefit-card">
-        <span>03</span>
-        <h3>Expands Your Reach</h3>
-        <p>A website helps you reach people beyond your local area through search engines and social media.</p>
-      </div>
 
-      <div class="benefit-card">
-        <span>04</span>
-        <h3>Cost-Effective Marketing</h3>
-        <p>Showcase products, publish articles, collect leads, and promote special offers affordably.</p>
-      </div>
+</div>
 
-      <div class="benefit-card">
-        <span>05</span>
-        <h3>Improves Customer Service</h3>
-        <p>Use FAQs, contact forms, chat features, and information pages to answer common questions quickly.</p>
-      </div>
+<div class="benefits-summary">
+<h3>More Than an Online Brochure</h3>
+<p>A professional website can showcase your work, strengthen your brand, provide useful visitor insights, and give you full control over your business information online.</p>
+</div>
 
-      <div class="benefit-card">
-        <span>06</span>
-        <h3>Increases Sales Opportunities</h3>
-        <p>Generate leads, accept bookings, process payments, and promote related products or services.</p>
-      </div>
-
-      <div class="benefit-card">
-        <span>07</span>
-        <h3>Enhances Brand Awareness</h3>
-        <p>Your website becomes a central hub for your brand, design, messaging, and business identity.</p>
-      </div>
-
-      <div class="benefit-card">
-        <span>08</span>
-        <h3>Provides Valuable Insights</h3>
-        <p>Analytics show visitor numbers, traffic sources, popular pages, and customer interests.</p>
-      </div>
-
-      <div class="benefit-card">
-        <span>09</span>
-        <h3>Showcases Your Work</h3>
-        <p>Display projects, testimonials, case studies, certifications, and achievements professionally.</p>
-      </div>
-
-      <div class="benefit-card">
-        <span>10</span>
-        <h3>Gives You Control</h3>
-        <p>You own your content, design, and functionality without depending only on social media platforms.</p>
-      </div>
-    </div>
-
-    <div class="examples-box">
-      <h3>Examples</h3>
-      <div class="examples-list">
-        <p><strong>Small business:</strong> Attract local customers and accept bookings.</p>
-        <p><strong>Freelancer:</strong> Display a portfolio and gain clients.</p>
-        <p><strong>Nonprofit:</strong> Share your mission and collect donations.</p>
-        <p><strong>Personal brand:</strong> Build an audience and showcase expertise.</p>
-      </div>
-    </div>
-  </div>
+</div>
 </section>
+<section class="services-section" id="services">
+<div class="pricing-header-container">
+<span class="pricing-subtitle">CampbellWeb Packages</span>
+<h2 class="pricing-main-title">Price List</h2>
+<div class="title-divider-line"></div><p class="section-intro">Choose a package that matches your business goals. Every website is designed to work smoothly across desktop, tablet, and mobile devices.</p>
+</div>
+<div class="services-grid">
+<article class="card">
+<div class="card-content">
+<h3>🚀 Landing Page</h3>
+<div class="price-tag">R1,000</div>
+<ul>
+<li>Custom landing page</li>
+<li>Mobile-friendly design</li>
+<li>Lead capture/contact form</li>
+<li>Call-to-action buttons</li>
+<li>Basic SEO setup</li>
+<li>1-year domain registration</li>
+<li>1-year hosting</li>
+</ul>
+</div>
+<a class="btn btn-gold" href="#contact">Select Package</a>
+</article>
+<article class="card">
+<div class="card-content">
+<h3>🌐 Basic Single-Page Website</h3>
+<div class="price-tag">R2,500</div>
+<ul>
+<li>1 professionally designed page</li>
+<li>Mobile-friendly design</li>
+<li>Contact form</li>
+<li>Social media links</li>
+<li>Basic SEO setup</li>
+<li>1-year domain registration</li>
+<li>1-year hosting</li>
+</ul>
+</div>
+<a class="btn btn-gold" href="#contact">Select Package</a>
+</article>
+<article class="card">
+<div class="card-content">
+<h3>🌐 Basic Multi-Page Website</h3>
+<div class="price-tag">R4,500</div>
+<ul>
+<li>Up to 5 pages</li>
+<li>Mobile-friendly design</li>
+<li>Contact form</li>
+<li>Social media integration</li>
+<li>Basic SEO setup</li>
+<li>1-year domain registration</li>
+<li>1-year hosting</li>
 
-    <section id="services" class="services-section">
-      <div class="pricing-header-container">
-        <span class="pricing-subtitle">CampbellWeb Packages</span>
-        <h2 class="pricing-main-title">Price List</h2>
-        <div class="title-divider-line"></div>
-      </div>
+</ul><p class="package-note">Additional pages: R250 per page</p>
+</div>
+<a class="btn btn-gold" href="#contact">Select Package</a>
+</article>
+<article class="card">
+<div class="card-content">
+<h3>💼 Professional Website (Up to 10 Pages)</h3>
+<div class="price-tag">R6,500</div>
+<ul>
+<li>Up to 10 custom-designed pages</li>
+<li>Mobile-friendly design</li>
+<li>Contact form</li>
+<li>Blog</li>
+<li>Image gallery</li>
+<li>Social media integration</li>
+<li>WhatsApp integration</li>
+<li>Google Maps</li>
+<li>Basic SEO setup</li>
+<li>1-year domain registration</li>
+<li>1-year hosting</li>
 
-      <div class="services-grid">
-        <article class="card">
-          <div class="card-content">
-            <h3>🌐 Basic Single-Page Website</h3>
-            <div class="price-tag">R1,500</div>
-            <ul>
-              <li>1 professionally designed page</li>
-              <li>Mobile-friendly design</li>
-              <li>Contact form</li>
-              <li>Social media links</li>
-              <li>Basic SEO setup</li>
-              <li>1-year domain registration</li>
-              <li>1-year hosting</li>
-            </ul>
-          </div>
-          <a href="#contact" class="btn btn-gold">Select Package</a>
-        </article>
+</ul><p class="package-note">Additional pages: R250 per page</p>
+</div>
+<a class="btn btn-gold" href="#contact">Select Package</a>
+</article>
+<article class="card">
+<div class="card-content">
+<h3>🛒 Online Store</h3>
+<div class="price-tag">R9,500</div>
+<ul>
+<li>Up to 25 products</li>
+<li>Shopping cart</li>
+<li>Mobile-friendly design</li>
+<li>Secure payment gateway</li>
+<li>Product categories</li>
+<li>Order management</li>
+<li>Customer accounts</li>
+<li>Image gallery</li>
+<li>Social media integration</li>
+<li>WhatsApp integration</li>
+<li>Basic SEO setup</li>
+<li>1-year domain registration</li>
+<li>1-year hosting</li>
 
-        <article class="card">
-          <div class="card-content">
-            <h3>🌐 Basic Multi-Page Website</h3>
-            <div class="price-tag">R4,500</div>
-            <ul>
-              <li>Up to 5 pages</li>
-              <li>Mobile-friendly design</li>
-              <li>Contact form</li>
-              <li>Social media integration</li>
-              <li>Basic SEO setup</li>
-              <li>1-year domain registration</li>
-              <li>1-year hosting</li>
-              <li class="add-on">Additional pages: R250 per page</li>
-            </ul>
-          </div>
-          <a href="#contact" class="btn btn-gold">Select Package</a>
-        </article>
+</ul><p class="package-note">Additional pages: R250 per page</p>
+<p class="package-note">Extra products: R20 each</p>
+</div>
+<a class="btn btn-gold" href="#contact">Select Package</a>
+</article>
+<article class="card">
+<div class="card-content">
+<h3>💳 Digital Business Card</h3>
+<div class="price-tag">R500</div>
+<ul>
+<li>Custom digital business card</li>
+<li>Click-to-call &amp; WhatsApp buttons</li>
+<li>Email and social media links</li>
+<li>Google Maps location</li>
+<li>QR code</li>
+<li>1-year domain registration</li>
+<li>1-year hosting</li>
+</ul>
+</div>
+<a class="btn btn-gold" href="#contact">Select Package</a>
+</article>
+<article class="card">
+<div class="card-content">
+<h3><i class="fa-solid fa-pencil"></i> Minor Updates</h3>
+<div class="price-tag">R250</div>
+<ul>
+<li>Minor Information Updates</li>
+<li>Contact Details</li>
+<li>Adverts</li>
+<li>Change of Headings</li>
+<li>Change of Text</li>
+<li>Change of Images</li>
+</ul>
+</div>
+<a class="btn btn-gold" href="#contact">Get Started</a>
+</article>
 
-        <article class="card">
-          <div class="card-content">
-            <h3>🚀 Landing Page</h3>
-            <div class="price-tag">R1,000</div>
-            <ul>
-              <li>Custom landing page</li>
-              <li>Mobile-friendly design</li>
-              <li>Lead capture/contact form</li>
-              <li>Call-to-action buttons</li>
-              <li>Basic SEO setup</li>
-              <li>1-year domain registration</li>
-              <li>1-year hosting</li>
-            </ul>
-          </div>
-          <a href="#contact" class="btn btn-gold">Select Package</a>
-        </article>
+</div>
+</section><section class="payment-terms-section" id="payment-terms">
+<div class="payment-terms-content">
+<div class="section-heading">
+<p class="section-label">Flexible Options</p>
+<h2>Payment Terms</h2>
+<p class="section-intro">Choose the payment option that works best for your project and budget.</p>
+</div>
+<div class="payment-options">
+<article class="payment-option">
+<i aria-hidden="true" class="fa-solid fa-wallet payment-icon"></i>
+<h3>Once-off Payment</h3>
+<ul>
+<li>50% deposit is required before work begins.</li>
+<li>The remaining 50% is payable before the website goes live.</li>
+</ul>
+</article>
+<article class="payment-option">
+<i aria-hidden="true" class="fa-solid fa-calendar-check payment-icon"></i>
+<h3>Payment Plan</h3>
+<ul>
+<li>50% deposit is paid upfront.</li>
+<li>The remaining balance is payable over two months.</li>
+</ul>
+</article>
+<article class="payment-option">
+<i aria-hidden="true" class="fa-solid fa-arrows-rotate payment-icon"></i>
+<h3>Monthly Website Package</h3>
+<p class="monthly-price">From R400 per month for 12 months</p>
+<ul>
+<li>Website</li>
+<li>Domain registration</li>
+<li>Hosting</li>
+<li>Website updates</li>
+<li>Technical support</li>
+</ul>
+</article>
+</div>
+<aside aria-label="Important payment information" class="highlight-box">
+<h3>Please Note</h3>
+<ul>
+<li>Domain registration and hosting are included for the first year.</li>
+<li>Annual domain and hosting renewals are billed separately from the second year.</li>
+<li>Turnaround times depend on layout complexity.</li>
+<li>All images, assets, and written text must be supplied by the client.</li>
+</ul>
+</aside>
+</div>
+</section>
+<section class="projects-section" id="projects">
 
-        <article class="card">
-          <div class="card-content">
-            <h3>💼 Digital Business Card</h3>
-            <div class="price-tag">R500</div>
-            <ul>
-              <li>Custom digital business card</li>
-              <li>Click-to-call &amp; WhatsApp buttons</li>
-              <li>Email and social media links</li>
-              <li>Google Maps location</li>
-              <li>QR code</li>
-              <li>1-year domain registration</li>
-              <li>1-year hosting</li>
-            </ul>
-          </div>
-          <a href="#contact" class="btn btn-gold">Select Package</a>
-        </article>
+<div class="section-heading">
+<p class="section-label">Our Work</p>
+<h2 class="slider-title">Project Gallery</h2>
+<p class="section-intro">Explore a selection of websites created for different businesses and service providers.</p>
+</div>
 
-        <article class="card">
-          <div class="card-content">
-            <h3><i class="fa-solid fa-pencil"></i> Minor Updates</h3>
-            <div class="price-tag">R200</div>
-            <ul>
-              <li>Minor Information Updates</li>
-              <li>Contact Details</li>
-              <li>Adverts</li>
-              <li>Change of Headings</li>
-              <li>Change of Text</li>
-              <li>Change of Images</li>
-            </ul>
-          </div>
-          <a href="#contact" class="btn btn-gold">Get Started</a>
-        </article>
-
-        <article class="card payment-card">
-          <div class="card-content">
-            <h3><i class="fa-solid fa-credit-card"></i> Payment Terms</h3>
-            <div class="price-tag terms-tag">Terms &amp; Conditions</div>
-            <ul>
-              <li>50% Deposit required upfront to start.</li>
-              <li>Remaining balance due upon final approval.</li>
-              <li>Yearly domain and hosting packages billed via debit order.</li>
-              <li>Turnaround times depend on layout complexity.</li>
-              <li>All asset copies must be supplied by the client.</li>
-            </ul>
-          </div>
-          <a href="#contact" class="btn btn-outline">View Details</a>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects" class="projects-section">
-      <h2 class="slider-title">Project Gallery</h2>
-      <div class="slider-container" aria-label="Project gallery slider">
-        <div class="slider-track" id="sliderTrack">
-          <div class="slide"><img src="images/project1.jpg" alt="Project 1"></div>
-          <div class="slide"><img src="images/project2.jpg" alt="Project 2"></div>
-          <div class="slide"><img src="images/project3.jpg" alt="Project 3"></div>
-          <div class="slide"><img src="images/project4.jpg" alt="Project 4"></div>
-          <div class="slide"><img src="images/project5.jpg" alt="Project 5"></div>
-          <div class="slide"><img src="images/project6.jpg" alt="Project 6"></div>
-          <div class="slide"><img src="images/project7.jpg" alt="Project 7"></div>
-          <div class="slide"><img src="images/project8.jpg" alt="Project 8"></div>
-          <div class="slide"><img src="images/project9.jpg" alt="Project 9"></div>
-          <div class="slide"><img src="images/project10.jpg" alt="Project 10"></div>
-        </div>
-   <button class="nav-btn prev-btn" id="prevBtn" type="button" aria-label="Previous slide">&#10094;</button>
-        <button class="nav-btn next-btn" id="nextBtn" type="button" aria-label="Next slide">&#10095;</button>
-        <div class="dots-container" id="dotsContainer" aria-label="Gallery slide dots"></div>
-      </div>
-    </section>
-
-   
-
-    <section id="contact" class="contact-section">
-      <div class="contact-card">
-        <div class="contact-header">
-          <i class="fa-solid fa-address-card header-icon"></i>
-          <h2>Get in Touch</h2>
-          <p>We would love to look over your next digital project layout.</p>
-        </div>
-
-        <div class="contact-methods">
-          <a href="tel:+27606990845" class="contact-row">
-            <div class="icon-box phone-bg"><i class="fa-solid fa-phone"></i></div>
-            <div class="contact-details">
-              <span>Call Us Directly</span>
-              <strong>060 699 0845</strong>
-            </div>
-            <i class="fa-solid fa-chevron-right arrow-icon"></i>
-          </a>
-
-          <a href="https://wa.me/27606990845" target="_blank" rel="noopener" class="contact-row">
-            <div class="icon-box whatsapp-bg"><i class="fa-brands fa-whatsapp"></i></div>
-            <div class="contact-details">
-              <span>WhatsApp Instant Chat</span>
-              <strong>Chat Live Now</strong>
-            </div>
-            <i class="fa-solid fa-chevron-right arrow-icon"></i>
-          </a>
-
-          <a href="mailto:infocampbellweb@gmail.com?subject=Website%20Design%20Inquiry" class="contact-row">
-            <div class="icon-box email-bg"><i class="fa-solid fa-envelope"></i></div>
-            <div class="contact-details">
-              <span>Send An Email</span>
-              <strong>infocampbellweb@gmail.com</strong>
-            </div>
-            <i class="fa-solid fa-chevron-right arrow-icon"></i>
-          </a>
-
-          <a href=https://www.instagram.com/campbellwebdev?igsh=MXNzZWY1ZGQwNDNuYw==
-   target="_blank"
-   rel="noopener noreferrer"
-   class="contact-row">
-  <div class="icon-box instagram-bg">
-    <i class="fa-brands fa-instagram"></i>
-  </div>
-
-  <div class="contact-details">
-    <span>Follow Us on Instagram</span>
-    <strong>@campbellwebdev</strong>
-  </div>
-
-  <i class="fa-solid fa-chevron-right arrow-icon"></i>
+<div aria-label="Project gallery slider" class="slider-container">
+<div class="slider-track" id="sliderTrack">
+<div class="slide"><img alt="Project 1" src="images/project1.jpg"/></div>
+<div class="slide"><img alt="Project 2" src="images/project2.jpg"/></div>
+<div class="slide"><img alt="Project 3" src="images/project3.jpg"/></div>
+<div class="slide"><img alt="Project 4" src="images/project4.jpg"/></div>
+<div class="slide"><img alt="Project 5" src="images/project5.jpg"/></div>
+<div class="slide"><img alt="Project 6" src="images/project6.jpg"/></div>
+<div class="slide"><img alt="Project 7" src="images/project7.jpg"/></div>
+<div class="slide"><img alt="Project 8" src="images/project8.jpg"/></div>
+<div class="slide"><img alt="Project 9" src="images/project9.jpg"/></div>
+<div class="slide"><img alt="Project 10" src="images/project10.jpg"/></div>
+</div>
+<button aria-label="Previous slide" class="nav-btn prev-btn" id="prevBtn" type="button">❮</button>
+<button aria-label="Next slide" class="nav-btn next-btn" id="nextBtn" type="button">❯</button>
+<div aria-label="Gallery slide dots" class="dots-container" id="dotsContainer"></div>
+</div>
+</section>
+<section class="contact-section" id="contact">
+<div class="contact-card">
+<div class="contact-header">
+<i class="fa-solid fa-address-card header-icon"></i>
+<h2>Get in Touch</h2>
+<p>We would love to look over your next digital project layout.</p>
+</div>
+<div class="contact-methods">
+<a class="contact-row" href="tel:+27606990845">
+<div class="icon-box phone-bg"><i class="fa-solid fa-phone"></i></div>
+<div class="contact-details">
+<span>Call Us Directly</span>
+<strong>060 699 0845</strong>
+</div>
+<i class="fa-solid fa-chevron-right arrow-icon"></i>
 </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© Copyright 2026 <span>CampbellWeb</span></p>
-  </footer>
-<a href="#" id="backToTop" class="back-to-top" aria-label="Back to top">↑</a>
-
-  <script>
+<a class="contact-row" href="https://wa.me/27606990845" rel="noopener" target="_blank">
+<div class="icon-box whatsapp-bg"><i class="fa-brands fa-whatsapp"></i></div>
+<div class="contact-details">
+<span>WhatsApp Instant Chat</span>
+<strong>Chat Live Now</strong>
+</div>
+<i class="fa-solid fa-chevron-right arrow-icon"></i>
+</a>
+<a class="contact-row" href="mailto:infocampbellweb@gmail.com?subject=Website%20Design%20Inquiry">
+<div class="icon-box email-bg"><i class="fa-solid fa-envelope"></i></div>
+<div class="contact-details">
+<span>Send An Email</span>
+<strong>infocampbellweb@gmail.com</strong>
+</div>
+<i class="fa-solid fa-chevron-right arrow-icon"></i>
+</a>
+<a class="contact-row" href="https://www.instagram.com/campbellwebdev?igsh=MXNzZWY1ZGQwNDNuYw==" rel="noopener noreferrer" target="_blank">
+<div class="icon-box instagram-bg">
+<i class="fa-brands fa-instagram"></i>
+</div>
+<div class="contact-details">
+<span>Follow Us on Instagram</span>
+<strong>@campbellwebdev</strong>
+</div>
+<i class="fa-solid fa-chevron-right arrow-icon"></i>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<p>© Copyright 2026 <span>CampbellWeb</span></p>
+</footer>
+<a aria-label="Back to top" class="back-to-top" href="#" id="backToTop">↑</a>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      ADVERT MODAL
@@ -627,6 +546,5 @@ if (videoContainer && videoPrevBtn && videoNextBtn) {
 }
 });
 </script>
-
 </body>
 </html>
