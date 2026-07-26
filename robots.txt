@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://campbellweb.co.za/sitemap.xml
