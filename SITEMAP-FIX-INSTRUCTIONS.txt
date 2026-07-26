@@ -1,0 +1,20 @@
+CAMPBELLWEB SITEMAP FIX
+
+WHAT WAS FIXED
+- The footer now opens sitemap.html, which is a readable sitemap page for visitors.
+- sitemap.xml remains in the website root for Google and other search engines.
+- robots.txt still points search engines to https://campbellweb.co.za/sitemap.xml.
+- sitemap.xml now also lists the readable sitemap page.
+
+HOW TO PUBLISH
+1. Upload index.html, sitemap.html, sitemap.xml, robots.txt and style.css to the same root folder as your live index.html.
+2. Do not put sitemap.xml inside the images folder or another subfolder.
+3. After publishing, test:
+   https://campbellweb.co.za/sitemap.html
+   https://campbellweb.co.za/sitemap.xml
+   https://campbellweb.co.za/robots.txt
+4. The XML page may appear as plain structured text. That is normal; it is intended for search engines.
+5. In Google Search Console, submit only: sitemap.xml
+
+IMPORTANT
+If GitHub Pages is serving an older cached version, commit and push the changed files, wait a few minutes, then refresh with Ctrl+F5.
