@@ -592,9 +592,11 @@
 <span><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Direct response from Carey</span>
 <span><i aria-hidden="true" class="fa-solid fa-clock"></i> Usually answered within 24 hours</span></div>
 </div>
-<form action="https://formsubmit.co/infocampbellweb@gmail.com" class="footer-contact-form" id="footerContactForm" method="POST">
+<form action="https://formsubmit.co/7cbf27dd4d677cf9943c3c99bfef6181" class="footer-contact-form" id="footerContactForm" method="POST">
 <input name="_subject" type="hidden" value="New CampbellWeb website enquiry"/>
 <input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_url" type="hidden" value="https://campbellweb.co.za/"/>
 <input name="_next" type="hidden" value="https://campbellweb.co.za/thank-you.html"/>
 <input aria-hidden="true" autocomplete="off" class="form-honeypot" name="_honey" tabindex="-1" type="text"/>
 <div class="form-grid">
@@ -833,28 +835,8 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoSlide();
   }
 
-  /* =========================
-     FOOTER CONTACT FORM
-     Uses the form's normal FormSubmit POST action for maximum reliability.
-     The first submission requires email activation from FormSubmit.
-  ========================= */
-
-  const footerContactForm = document.getElementById("footerContactForm");
-  const footerFormStatus = document.getElementById("footerFormStatus");
-
-  if (footerContactForm && footerFormStatus) {
-    footerContactForm.addEventListener("submit", () => {
-      const submitButton = footerContactForm.querySelector('button[type="submit"]');
-      const submitText = submitButton?.querySelector("span");
-
-      footerFormStatus.className = "form-status is-loading";
-      footerFormStatus.textContent = "Sending your enquiry…";
-
-      if (submitButton) submitButton.disabled = true;
-      if (submitText) submitText.textContent = "Sending…";
-      // Do not call preventDefault(): the browser now submits directly to FormSubmit.
-    });
-  }
+  /* The enquiry form uses a direct HTML POST to FormSubmit.
+     No JavaScript interception is used, which avoids blocked or incomplete submissions. */
 
   const videoContainer = document.getElementById("videoSlidesContainer");
 const videoPrevBtn = document.getElementById("videoPrevBtn");
