@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:CampbellWeb;;;;
+FN:CampbellWeb
+ORG:CampbellWeb
+TITLE:Web Design and Development
+TEL;TYPE=CELL,VOICE:+27606990845
+EMAIL;TYPE=INTERNET,WORK:infocampbellweb@gmail.com
+URL;TYPE=WORK:https://campbellweb.co.za
+X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/campbellwebdev/
+X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/profile.php?id=61590211885373&mibextid=rS40aB7S9Ucbxw6v
+NOTE:Professional and affordable website design by CampbellWeb.
+END:VCARD

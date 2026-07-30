@@ -2093,3 +2093,138 @@ textarea:focus-visible { outline: 3px solid rgba(242,210,107,.72); outline-offse
 .business-card-button:nth-child(6)::before {
   animation-delay: 4s;
 }
+
+/* =========================================================
+   UPDATED DIGITAL BUSINESS CARD — SAVE CONTACT PANEL
+   ========================================================= */
+
+.business-card-save-contact {
+  width: 100%;
+  margin: 22px 0;
+  padding: 24px 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(10, 43, 102, 0.13);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.business-card-qr-frame {
+  width: 170px;
+  margin: 0 auto;
+  padding: 12px;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(11, 47, 120, 0.12);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.business-card-contact-qr {
+  display: block;
+  width: 100%;
+  max-width: 132px;
+  height: auto;
+}
+
+.business-card-save-copy {
+  width: min(100%, 350px);
+  margin: 0 auto;
+}
+
+.business-card-save-copy h3 {
+  margin: 0 0 8px;
+  color: var(--primary-blue);
+  font-size: 1.15rem;
+  text-align: center;
+  text-shadow: none;
+}
+
+.business-card-save-copy p {
+  margin: 0 0 14px;
+  color: #34445d;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.business-card-save-button {
+  min-height: 44px;
+  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #0b2f78, #125fca);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba(11, 47, 120, 0.2);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.business-card-save-button:hover,
+.business-card-save-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 11px 22px rgba(11, 47, 120, 0.28);
+  outline: 2px solid rgba(212, 175, 55, 0.75);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .business-card-save-contact {
+    gap: 14px;
+    margin: 18px 0;
+    padding: 18px 15px;
+    border-radius: 18px;
+  }
+
+  .business-card-qr-frame {
+    width: 148px;
+    padding: 10px;
+  }
+
+  .business-card-contact-qr {
+    max-width: 110px;
+  }
+
+  .business-card-save-copy h3 {
+    font-size: 1rem;
+  }
+
+  .business-card-save-copy p {
+    font-size: 0.76rem;
+  }
+
+  .business-card-save-button {
+    min-height: 40px;
+    padding: 9px 12px;
+    font-size: 0.71rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .business-card-qr-frame {
+    width: 132px;
+  }
+
+  .business-card-contact-qr {
+    max-width: 96px;
+  }
+
+  .business-card-save-button {
+    width: 100%;
+  }
+}
+
