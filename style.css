@@ -2083,3 +2083,13 @@ textarea:focus-visible { outline: 3px solid rgba(242,210,107,.72); outline-offse
     padding: 18px;
   }
 }
+
+
+/* Facebook styling for the digital business card */
+.facebook-icon {
+  background: linear-gradient(145deg, #0866ff, #174ea6);
+}
+
+.business-card-button:nth-child(6)::before {
+  animation-delay: 4s;
+}
