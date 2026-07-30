@@ -57,8 +57,7 @@
 <img alt="CampbellWeb Logo" class="logo-img" src="images/logo.webp"/>
 </a>
 
-</button>
-<div class="nav-links" id="mainNavLinks">
+<div class="nav-links" id="primaryNavigation">
   <a href="#why-website">Why a Website?</a>
   <a href="#trust-highlights">Why Choose Us?</a>
   <a href="#about">About</a>
@@ -243,6 +242,7 @@
 <li>Lead capture/contact form</li>
 <li>Call-to-action buttons</li>
 <li>Basic SEO setup</li>
+<li>1 Revision</li>
 <li>1-year domain registration</li>
 <li>1-year hosting</li>
 </ul>
@@ -259,6 +259,7 @@
 <li>Contact form</li>
 <li>Social media links</li>
 <li>Basic SEO setup</li>
+<li>1 Revisions</li>
 <li>1-year domain registration</li>
 <li>1-year hosting</li>
 </ul>
@@ -275,6 +276,7 @@
 <li>Contact form</li>
 <li>Social media integration</li>
 <li>Basic SEO setup</li>
+<li>2 Revisions</li>
 <li>1-year domain registration</li>
 <li>1-year hosting</li>
 </ul><p class="package-note">Additional pages: R250 per page</p>
@@ -295,6 +297,7 @@
 <li>WhatsApp integration</li>
 <li>Google Maps</li>
 <li>Basic SEO setup</li>
+<li>3 Revisions</li>
 <li>1-year domain registration</li>
 <li>1-year hosting</li>
 </ul><p class="package-note">Additional pages: R250 per page</p>
@@ -311,6 +314,7 @@
 <li>Email and social media links</li>
 <li>Google Maps location</li>
 <li>QR code</li>
+<li>1 Revision</li>
 <li>1-year domain registration</li>
 <li>1-year hosting</li>
 </ul>
@@ -319,15 +323,26 @@
 </article>
 <article class="card">
 <div class="card-content">
-<h3><span class="package-heading-icon"><i aria-hidden="true" class="fa-solid fa-pen-to-square"></i></span><span>Minor Updates</span></h3>
+<h3><span class="package-heading-icon"><i aria-hidden="true" class="fa-solid fa-pen-to-square"></i></span><span>Revision</span></h3>
 <div class="price-tag">R250</div>
 <ul>
 <li>Minor Information Updates</li>
-<li>Contact Details</li>
-<li>Adverts</li>
-<li>Change of Headings</li>
-<li>Change of Text</li>
-<li>Change of Images</li>
+<li>Media Updates</li>
+<li>Text Fixes</li>
+<li>Style Tweaks</li>
+</ul>
+</div>
+<a class="btn btn-gold quote-link" data-service="Website Updates" href="#enquiry">Get Started</a>
+</article>
+<article class="card">
+<div class="card-content">
+<h3><span class="package-heading-icon"><i aria-hidden="true" class="fa-solid fa-pen-to-square"></i></span><span>Major Changes</span></h3>
+<div class="price-tag">R750</div>
+<ul>
+<li>Major Changes To Layout and Structure</li>
+<li>Moving Whole Page Parts</li>
+<li>Building New Features</li>
+<li>Code Changes</li>
 </ul>
 </div>
 <a class="btn btn-gold quote-link" data-service="Website Updates" href="#enquiry">Get Started</a>
@@ -475,7 +490,7 @@
 <p class="section-intro">Answers to common questions about pricing, turnaround times, hosting, content and ongoing support.</p>
 </div>
 <div class="faq-list">
-<details><summary>How long does a website take?<i aria-hidden="true" class="fa-solid fa-plus"></i></summary><p>Most websites can be completed within 1–7 days. Larger websites, online stores or projects requiring extensive content may take longer.</p></details>
+<details><summary>How long does a website take?<i aria-hidden="true" class="fa-solid fa-plus"></i></summary><p>Most websites can be completed within 1–7 days. Larger websites and projects requiring extensive content may take longer.</p></details>
 <details><summary>Is hosting and domain registration included?<i aria-hidden="true" class="fa-solid fa-plus"></i></summary><p>Yes. The listed website packages include one year of domain registration and hosting. Renewal charges apply from the second year.</p></details>
 <details><summary>Do I need to supply the text and images?<i aria-hidden="true" class="fa-solid fa-plus"></i></summary><p>Clients should supply their logo, business information, service details, prices and preferred images. Guidance can be provided on organising the content.</p></details>
 <details><summary>Will my website work on mobile phones?<i aria-hidden="true" class="fa-solid fa-plus"></i></summary><p>Yes. Every website is designed to adapt to phones, tablets and desktop screens.</p></details>
@@ -708,39 +723,44 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
-     DROPDOWN NAVIGATION
+     MOBILE NAVIGATION
   ========================= */
 
-  const navContainer = document.querySelector(".nav-container");
-  const navMenuButton = document.getElementById("navMenuButton");
-  const mainNavLinks = document.getElementById("mainNavLinks");
+  const mobileNavToggle = document.getElementById("mobileNavToggle");
+  const primaryNavigation = document.getElementById("primaryNavigation");
 
-  const closeNavMenu = () => {
-    if (!navMenuButton || !mainNavLinks) return;
-    navMenuButton.setAttribute("aria-expanded", "false");
-    mainNavLinks.classList.remove("is-open");
+  const closeMobileNavigation = () => {
+    if (!mobileNavToggle || !primaryNavigation) return;
+    mobileNavToggle.setAttribute("aria-expanded", "false");
+    primaryNavigation.classList.remove("is-open");
   };
 
-  if (navMenuButton && mainNavLinks) {
-    navMenuButton.addEventListener("click", () => {
-      const isOpen = navMenuButton.getAttribute("aria-expanded") === "true";
-      navMenuButton.setAttribute("aria-expanded", String(!isOpen));
-      mainNavLinks.classList.toggle("is-open", !isOpen);
+  if (mobileNavToggle && primaryNavigation) {
+    mobileNavToggle.addEventListener("click", () => {
+      const willOpen = mobileNavToggle.getAttribute("aria-expanded") !== "true";
+      mobileNavToggle.setAttribute("aria-expanded", String(willOpen));
+      primaryNavigation.classList.toggle("is-open", willOpen);
     });
 
-    mainNavLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeNavMenu);
+    primaryNavigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMobileNavigation);
     });
 
     document.addEventListener("click", (event) => {
-      if (navContainer && !navContainer.contains(event.target)) closeNavMenu();
+      if (window.innerWidth > 768) return;
+      if (!event.target.closest(".nav-container")) closeMobileNavigation();
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closeNavMenu();
-        navMenuButton.focus();
+      const menuIsOpen = primaryNavigation.classList.contains("is-open");
+      if (event.key === "Escape" && menuIsOpen) {
+        closeMobileNavigation();
+        mobileNavToggle.focus();
       }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) closeMobileNavigation();
     });
   }
 
