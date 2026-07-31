@@ -1,0 +1,20 @@
+CAMPBELLWEB NAVIGATION, CSS AND JAVASCRIPT UPDATE
+=================================================
+
+Files changed
+-------------
+- index.html: added the accessible mobile Menu button and loads script.js.
+- style.css: consolidated duplicate selectors and media queries; added the mobile dropdown styles.
+- script.js: contains the active website interactions; unused video slider code was removed.
+
+Mobile menu behaviour
+---------------------
+- Hidden on desktop.
+- Displayed below the centred logo at 768 px and below.
+- Opens and closes using the gold Menu button.
+- Closes after a navigation link is selected.
+- Closes when the visitor clicks outside the navigation or presses Escape.
+
+Publishing
+----------
+Upload all files and folders in this package together. Do not omit script.js.

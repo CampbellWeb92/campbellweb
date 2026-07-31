@@ -1,0 +1,22 @@
+CAMPBELLWEB IMAGE OPTIMISATION REPORT
+=====================================
+
+Changes completed
+-----------------
+- Replaced the remaining project PNG used on the home page with a compressed WebP copy.
+- Changed legal-page logos from large PNG files to the existing lightweight WebP logo.
+- Changed favicon and web-app icon references to images/favicon.png.
+- Changed social sharing metadata to the correct 1200 x 630 images/og-image.jpg.
+- Added image width and height attributes to reduce layout movement while pages load.
+- Added a preload hint for the hero WebP background.
+- Recompressed JPEG and WebP files where doing so reduced file size.
+- Losslessly optimised PNG files where possible.
+- Removed the hidden .git history from both delivery packages. It is not required on a hosted website and added about 40 MB.
+
+Packages
+--------
+1. Optimised deployment package:
+   Contains only website files and images that are actually used. Recommended for GitHub Pages and hosting uploads.
+
+2. Optimised full package:
+   Keeps the unused original image source copies as well, for easier future editing.
