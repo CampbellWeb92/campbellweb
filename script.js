@@ -39,39 +39,42 @@ document.addEventListener("DOMContentLoaded", () => {
   closeAdvertButton?.addEventListener("click", closeAdvert);
   advertCallToAction?.addEventListener("click", closeAdvert);
 
-  /* Mobile navigation */
-  const mobileNavToggle = document.getElementById("mobileNavToggle");
+  /* Shared desktop and mobile dropdown navigation */
+  const navToggle = document.getElementById("navToggle");
   const primaryNavigation = document.getElementById("primaryNavigation");
-  const mobileBreakpoint = window.matchMedia("(max-width: 768px)");
 
-  const setMobileNavigation = (open) => {
-    if (!mobileNavToggle || !primaryNavigation) return;
-    mobileNavToggle.setAttribute("aria-expanded", String(open));
+  const setNavigation = (open) => {
+    if (!navToggle || !primaryNavigation) return;
+    navToggle.setAttribute("aria-expanded", String(open));
     primaryNavigation.classList.toggle("is-open", open);
 
-    const icon = mobileNavToggle.querySelector("i");
+    const icon = navToggle.querySelector("i");
     icon?.classList.toggle("fa-bars", !open);
     icon?.classList.toggle("fa-xmark", open);
   };
 
-  const closeMobileNavigation = () => setMobileNavigation(false);
+  const closeNavigation = () => setNavigation(false);
 
-  if (mobileNavToggle && primaryNavigation) {
-    mobileNavToggle.addEventListener("click", () => {
-      const isOpen = mobileNavToggle.getAttribute("aria-expanded") === "true";
-      setMobileNavigation(!isOpen);
+  if (navToggle && primaryNavigation) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+      setNavigation(!isOpen);
     });
 
     primaryNavigation.addEventListener("click", (event) => {
-      if (event.target.closest("a")) closeMobileNavigation();
+      if (event.target.closest("a")) closeNavigation();
     });
 
     document.addEventListener("click", (event) => {
-      if (!mobileBreakpoint.matches) return;
-      if (!event.target.closest(".nav-container")) closeMobileNavigation();
+      if (!event.target.closest(".nav-container")) closeNavigation();
     });
 
-    mobileBreakpoint.addEventListener("change", closeMobileNavigation);
+    let previousViewportWidth = window.innerWidth;
+    window.addEventListener("resize", () => {
+      if (window.innerWidth === previousViewportWidth) return;
+      previousViewportWidth = window.innerWidth;
+      closeNavigation();
+    }, { passive: true });
   }
 
   /* Smooth home and back-to-top links */
@@ -115,8 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.key !== "Escape") return;
     if (modal?.classList.contains("show")) closeAdvert();
     if (primaryNavigation?.classList.contains("is-open")) {
-      closeMobileNavigation();
-      mobileNavToggle?.focus();
+      closeNavigation();
+      navToggle?.focus();
     }
   });
 

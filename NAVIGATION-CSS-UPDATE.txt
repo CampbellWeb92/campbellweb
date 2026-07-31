@@ -1,19 +1,20 @@
-CAMPBELLWEB NAVIGATION, CSS AND JAVASCRIPT UPDATE
-=================================================
+CAMPBELLWEB STICKY DROPDOWN NAVIGATION UPDATE
+==============================================
 
 Files changed
 -------------
-- index.html: added the accessible mobile Menu button and loads script.js.
-- style.css: consolidated duplicate selectors and media queries; added the mobile dropdown styles.
-- script.js: contains the active website interactions; unused video slider code was removed.
+- index.html: uses one accessible Menu button for desktop and mobile and loads script.js.
+- style.css: makes the header sticky and applies the shared responsive dropdown layout.
+- script.js: controls the shared dropdown and retains the active website interactions.
 
-Mobile menu behaviour
----------------------
-- Hidden on desktop.
-- Displayed below the centred logo at 768 px and below.
-- Opens and closes using the gold Menu button.
-- Closes after a navigation link is selected.
-- Closes when the visitor clicks outside the navigation or presses Escape.
+Desktop and mobile behaviour
+----------------------------
+- The full navigation header stays sticky at the top on desktop and mobile.
+- A compact gold Menu button appears below the centred logo at every screen size.
+- All nine links remain hidden until the Menu button is opened.
+- Desktop displays the open links in a compact three-column panel.
+- Mobile displays the open links in one column.
+- The menu closes after selecting a link, clicking outside, pressing Escape, or changing the screen width.
 
 Publishing
 ----------
