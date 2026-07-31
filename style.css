@@ -24,7 +24,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 112px;
+  scroll-padding-top: 0;
 }
 
 body {
@@ -434,9 +434,9 @@ justify-content: center;
 
 /* Header */
 .theme-header {
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  position: static;
+  top: auto;
+  z-index: auto;
   background: rgba(17, 17, 17, 0.94);
   border-bottom: 2px solid var(--accent-gold);
   box-shadow: 0 4px 22px rgba(0, 0, 0, 0.28);
@@ -1010,7 +1010,7 @@ justify-content: center;
 
 /* Mobile */
 @media (max-width: 768px) {
-  html { scroll-padding-top: 148px; }
+  html { scroll-padding-top: 0; }
   body { background-attachment: scroll; }
   .main-content > section:not(.hero) { padding: 58px 16px; }
   .nav-container { gap: 11px; padding: 11px 14px 14px; }
@@ -2369,3 +2369,4 @@ textarea:focus-visible { outline: 3px solid rgba(242,210,107,.72); outline-offse
     width: 100% !important;
   }
 }
+
