@@ -76,33 +76,47 @@
   }
 
   .theme-header .nav-links a {
-    min-height: auto !important;
-    padding: 10px 2px 8px !important;
+    min-height: 38px !important;
+    padding: 8px 10px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    border: 0 !important;
-    border-bottom: 2px solid transparent !important;
-    border-radius: 0 !important;
-    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.32) !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
     color: #ffffff !important;
-    font-size: clamp(0.63rem, 0.78vw, 0.76rem) !important;
+    font-size: clamp(0.61rem, 0.72vw, 0.74rem) !important;
     font-weight: 800 !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0.04em !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.025em !important;
     white-space: nowrap !important;
     text-decoration: none !important;
     text-transform: uppercase !important;
-    box-shadow: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16) !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
   }
 
   .theme-header .nav-links a:hover,
   .theme-header .nav-links a:focus-visible {
-    border-bottom-color: #d4af37 !important;
-    background: transparent !important;
-    color: #f0ca58 !important;
-    transform: none !important;
-    outline: none !important;
+    border-color: #d4af37 !important;
+    background: rgba(212, 175, 55, 0.16) !important;
+    color: #f6d66b !important;
+    transform: translateY(-1px) !important;
+    outline: 2px solid transparent !important;
+  }
+
+  .theme-header .nav-links .nav-contact-button {
+    border-color: #d4af37 !important;
+    background: linear-gradient(135deg, #f4d35e, #d4af37) !important;
+    color: #0a2540 !important;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.28) !important;
+  }
+
+  .theme-header .nav-links .nav-contact-button:hover,
+  .theme-header .nav-links .nav-contact-button:focus-visible {
+    border-color: #f7df85 !important;
+    background: linear-gradient(135deg, #ffe483, #e4bd3f) !important;
+    color: #071b2d !important;
   }
 }
 </style>
@@ -163,7 +177,7 @@
 <a href="#payment-terms">Payment Terms</a>
 <a href="#projects">Projects</a>
 <a href="#faq">FAQ</a>
-<a href="#contact">Contact</a>
+<a class="nav-contact-button" href="#contact">Contact</a>
 </div>
 </nav>
 </header>
