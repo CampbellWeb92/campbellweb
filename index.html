@@ -28,56 +28,81 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com" rel="preconnect"/>
 <link href="style.css?v=20260801-updated" rel="stylesheet"/>
 <style>
-/* Desktop navigation: keep all primary links permanently visible. */
-@media (min-width: 1025px) {
-  .nav-container {
-    max-width: 1280px;
-    min-height: 76px;
-    padding: 8px 24px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 22px;
+/* Static navigation for tablet and desktop views. Mobile keeps the dropdown menu. */
+@media (min-width: 769px) {
+  .theme-header .nav-container {
+    width: min(1380px, 100%) !important;
+    min-height: 76px !important;
+    margin: 0 auto !important;
+    padding: 8px 22px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 18px !important;
   }
 
-  .nav-container .logo {
-    flex: 0 0 auto;
+  .theme-header .logo {
+    flex: 0 0 auto !important;
   }
 
-  .nav-container .logo-img {
-    width: 118px;
+  .theme-header .logo-img {
+    width: 112px !important;
   }
 
-  .nav-toggle {
-    display: none;
+  .theme-header .nav-toggle {
+    display: none !important;
   }
 
-  .nav-links,
-  .nav-links.is-open {
-    width: auto;
-    max-width: none;
-    max-height: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex: 1 1 auto;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 6px;
-    overflow: visible;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: none;
+  .theme-header .nav-links,
+  .theme-header .nav-links.is-open {
+    width: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 2px 12px !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    transition: none !important;
   }
 
-  .nav-links a {
-    min-height: 38px;
-    padding: 8px 10px;
-    border-radius: 9px;
-    font-size: 0.67rem;
-    white-space: nowrap;
+  .theme-header .nav-links a {
+    min-height: auto !important;
+    padding: 10px 2px 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 0 !important;
+    border-bottom: 2px solid transparent !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #ffffff !important;
+    font-size: clamp(0.63rem, 0.78vw, 0.76rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.04em !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    box-shadow: none !important;
+  }
+
+  .theme-header .nav-links a:hover,
+  .theme-header .nav-links a:focus-visible {
+    border-bottom-color: #d4af37 !important;
+    background: transparent !important;
+    color: #f0ca58 !important;
+    transform: none !important;
+    outline: none !important;
   }
 }
 </style>
@@ -108,7 +133,7 @@
 </script>
 </head>
 <body>
-
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <div aria-hidden="true" class="adv-modal" id="advModal">
 <div aria-labelledby="advDialogTitle" aria-modal="true" class="adv-content image-only-content" role="dialog"><h2 class="visually-hidden" id="advDialogTitle">Limited-time CampbellWeb website discount</h2>
 <button aria-label="Close advert" class="adv-close-btn" id="closeAdvBtn" type="button">×</button>
@@ -224,7 +249,7 @@
 <div class="about-content">
 <p class="section-label">About CampbellWeb</p>
 <h2>Meet Carey Campbell</h2>
-<p class="about-lead">CampbellWeb is led by Carey Campbell, a front-end web developer with three years of hands-on experience creating responsive websites for businesses and service providers.</p>
+<p class="about-lead">CampbellWeb is led by Carey Campbell, a front-end web developer with three years of hands-on experience creating responsive websites for businesses and service providers. Carey is also studying cybersecurity, bringing a growing security-focused perspective to every digital project.</p>
 <div class="about-details-grid">
 <article class="about-detail-card">
 <i aria-hidden="true" class="fa-solid fa-laptop-code"></i>
