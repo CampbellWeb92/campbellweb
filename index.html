@@ -31,8 +31,9 @@
 <link rel="manifest" href="site.webmanifest"/>
 <link rel="preload" as="image" href="hero.webp" type="image/webp"/>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/>
-<link href="style.css?v=20260731-sticky-dropdown" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="style.css?v=20260801-performance" rel="stylesheet"/>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/></noscript>
 
 <script type="application/ld+json">
 {
@@ -75,7 +76,7 @@
 <header class="theme-header">
 <nav aria-label="Main navigation" class="nav-container">
 <a aria-label="CampbellWeb home" class="logo" href="#top">
-<img alt="CampbellWeb Logo" class="logo-img" src="images/logo.webp" width="720" height="480"/>
+<img alt="CampbellWeb Logo" class="logo-img" decoding="async" fetchpriority="high" src="images/logo.webp" width="720" height="480"/>
 </a>
 
 <button
@@ -207,7 +208,7 @@
 <div class="about-container">
 <div class="about-photo-column">
 <div class="about-photo-frame">
-<img alt="Carey Campbell, founder and front-end web developer at CampbellWeb" decoding="async" loading="lazy" src="images/carey.jpg" width="1000" height="1000"/>
+<img alt="Carey Campbell, founder and front-end web developer at CampbellWeb" decoding="async" loading="lazy" src="images/carey.webp" width="1000" height="1000"/>
 <div class="about-photo-badge">
 <strong>Carey Campbell</strong>
 <span>Founder &amp; Front-End Web Developer</span>
@@ -438,7 +439,7 @@
 </div>
 
 <div aria-label="Project gallery" class="projects-grid"><article aria-label="Project 1 of 10: White Lily" class="project-card"><div class="project-image-wrap">
-<img alt="White Lily website home page" decoding="async" loading="lazy" src="images/project1.png" width="1317" height="587"/>
+<img alt="White Lily website home page" decoding="async" loading="lazy" src="images/project1.webp" width="1317" height="587"/>
 </div><div class="project-caption">
 <p class="project-category">Wellness &amp; Beauty</p>
 <h3>White Lily</h3>
@@ -473,7 +474,7 @@
 <p class="project-description">A luxurious mobile landing page created to introduce the massage brand, communicate its atmosphere and encourage clients to view rates or book.</p>
 <ul aria-label="Features included" class="project-features"><li>Mobile-first design</li><li>Rates section</li><li>WhatsApp booking</li><li>Luxury branding</li></ul>
 <div class="project-actions"><span class="project-link-note"><i aria-hidden="true" class="fa-solid fa-link"></i> Live link available on request</span><a class="project-btn project-btn-secondary quote-link" data-service="A website similar to Massage by Ashleigh" href="#enquiry"><i aria-hidden="true" class="fa-solid fa-paper-plane"></i> Request Similar Website</a></div></div></article><article aria-label="Project 6 of 10: Real Touch Studio" class="project-card"><div class="project-image-wrap">
-<img alt="Real Touch Studio website" decoding="async" loading="lazy" src="images/project6.webp" width="1080" height="1967"/>
+<img alt="Real Touch Studio website" decoding="async" loading="lazy" src="images/project6.webp" width="1324" height="589"/>
 </div><div class="project-caption">
 <p class="project-category">Beauty Studio</p>
 <h3>Real Touch Studio</h3>
@@ -501,7 +502,7 @@
 <p class="project-description">A responsive massage website created to introduce the practitioner, explain the service philosophy and make bookings easy from a phone.</p>
 <ul aria-label="Features included" class="project-features"><li>Service information</li><li>Business hours</li><li>WhatsApp contact</li><li>Mobile navigation</li></ul>
 <div class="project-actions"><a class="project-btn project-btn-primary" href="https://massagebyryan.co.za" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square"></i> View Live Website</a><a class="project-btn project-btn-secondary quote-link" data-service="A website similar to RMM" href="#enquiry"><i aria-hidden="true" class="fa-solid fa-paper-plane"></i> Request Similar Website</a></div></div></article><article aria-label="Project 10 of 10: Lazy Larry’s Coffee Shop" class="project-card"><div class="project-image-wrap">
-<img alt="Lazy Larry's Coffee Shop website" decoding="async" loading="lazy" src="images/project10.webp" width="1157" height="583"/>
+<img alt="Lazy Larry's Coffee Shop website" decoding="async" loading="lazy" src="images/project10.webp?v=20260801" width="1335" height="592"/>
 </div><div class="project-caption">
 <p class="project-category">Food &amp; Hospitality</p>
 <h3>Lazy Larry’s Coffee Shop</h3>
@@ -712,7 +713,7 @@
 <div class="footer-bottom"><p>© <span id="currentYear">2026</span> <strong>CampbellWeb</strong></p></div>
 </footer>
 <a aria-label="Back to top" class="back-to-top" href="#" id="backToTop">↑</a>
-<script defer src="script.js?v=20260731-navigation"></script>
+<script defer src="script.js?v=20260801-performance"></script>
 
 </body>
 </html>

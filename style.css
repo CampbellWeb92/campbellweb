@@ -2270,3 +2270,12 @@ textarea:focus-visible { outline: 3px solid rgba(242,210,107,.72); outline-offse
     animation: none;
   }
 }
+
+
+/* Performance enhancement: defer layout and paint for off-screen page sections. */
+@supports (content-visibility: auto) {
+  .main-content > section:not(.hero) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+}

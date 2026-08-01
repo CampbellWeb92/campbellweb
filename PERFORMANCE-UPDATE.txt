@@ -1,0 +1,21 @@
+CAMPBELLWEB PERFORMANCE UPDATE
+Date: 1 August 2026
+
+Completed changes
+-----------------
+1. Replaced images/project10.png with the new Lazy Larry's Coffee Shop screenshot.
+2. Rebuilt images/project10.webp from the new screenshot for the live project card.
+3. Updated the Project 10 HTML dimensions to 1335 x 592 and added cache busting.
+4. Changed Project 1 from PNG to the existing WebP version.
+5. Created images/carey.webp and updated the About image to use it.
+6. Made Font Awesome load without blocking the first page render, with a noscript fallback.
+7. Added content-visibility for below-the-fold sections to reduce initial layout and paint work.
+8. Updated CSS and JavaScript cache-version values.
+
+Approximate image transfer savings on the home page
+---------------------------------------------------
+Project 1: 224,235 bytes -> 47,824 bytes
+Carey photo: 71,160 bytes -> 38,442 bytes
+New Project 10 WebP: 32,682 bytes
+
+The original editable PNG/JPG files remain in the project for future use.
