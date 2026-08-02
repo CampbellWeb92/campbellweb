@@ -38,101 +38,7 @@
   <link as="image" href="hero.webp" rel="preload" type="image/webp"/>
   <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com" rel="preconnect"/>
   <!-- MAIN STYLESHEET -->
-  <link href="style.css?v=20260801-updated" rel="stylesheet"/>
-  <!-- DESKTOP NAVIGATION OVERRIDES -->
-  <style>
-   /* Static navigation for tablet and desktop views. Mobile keeps the dropdown menu. */
-@media (min-width: 769px) {
-  .theme-header .nav-container {
-    width: min(1380px, 100%) !important;
-    min-height: 76px !important;
-    margin: 0 auto !important;
-    padding: 8px 22px !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 18px !important;
-  }
-
-  .theme-header .logo {
-    flex: 0 0 auto !important;
-  }
-
-  .theme-header .logo-img {
-    width: 112px !important;
-  }
-
-  .theme-header .nav-toggle {
-    display: none !important;
-  }
-
-  .theme-header .nav-links,
-  .theme-header .nav-links.is-open {
-    width: auto !important;
-    max-width: none !important;
-    max-height: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: flex !important;
-    flex: 1 1 auto !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 2px 12px !important;
-    overflow: visible !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  .theme-header .nav-links a {
-    min-height: 38px !important;
-    padding: 8px 10px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border: 1px solid rgba(255, 255, 255, 0.32) !important;
-    border-radius: 8px !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    color: #ffffff !important;
-    font-size: clamp(0.61rem, 0.72vw, 0.74rem) !important;
-    font-weight: 800 !important;
-    line-height: 1.15 !important;
-    letter-spacing: 0.025em !important;
-    white-space: nowrap !important;
-    text-decoration: none !important;
-    text-transform: uppercase !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16) !important;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
-  }
-
-  .theme-header .nav-links a:hover,
-  .theme-header .nav-links a:focus-visible {
-    border-color: #d4af37 !important;
-    background: rgba(212, 175, 55, 0.16) !important;
-    color: #f6d66b !important;
-    transform: translateY(-1px) !important;
-    outline: 2px solid transparent !important;
-  }
-
-  .theme-header .nav-links .nav-contact-button {
-    border-color: #d4af37 !important;
-    background: linear-gradient(135deg, #f4d35e, #d4af37) !important;
-    color: #0a2540 !important;
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.28) !important;
-  }
-
-  .theme-header .nav-links .nav-contact-button:hover,
-  .theme-header .nav-links .nav-contact-button:focus-visible {
-    border-color: #f7df85 !important;
-    background: linear-gradient(135deg, #ffe483, #e4bd3f) !important;
-    color: #071b2d !important;
-  }
-}
-  </style>
+  <link href="style.css?v=20260802-layout-cleanup" rel="stylesheet"/>
   <link as="style" crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
   <noscript>
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
@@ -2348,7 +2254,7 @@
   <a aria-label="Back to top" class="back-to-top" href="#" id="backToTop">
    &uarr;
   </a>
-  <script defer="" src="script.js?v=20260801-updated">
+  <script defer="" src="script.js?v=20260802-layout-cleanup">
   </script>
  </body>
 </html>

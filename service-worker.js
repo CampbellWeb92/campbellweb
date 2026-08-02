@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "campbellweb-shell-2026-08-01";
+const CACHE_NAME = "campbellweb-shell-2026-08-02-layout-cleanup";
 const OFFLINE_PAGE = "/offline.html";
 const CORE_ASSETS = [
   "/",
