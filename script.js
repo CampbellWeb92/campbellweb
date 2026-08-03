@@ -6,9 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeAdvertButton = document.getElementById("closeAdvBtn");
   const dismissAdvertButton = document.getElementById("advDismissButton");
   const advertCallToAction = document.getElementById("advCtaLink");
+  const advertImage = modal?.querySelector(".adv-popup-img");
   const advertStorageKey = "campbellwebAdvertHiddenUntil";
   const advertHideDuration = 30 * 24 * 60 * 60 * 1000;
   let advertTimer;
+  let advertImageTimer;
+  let advertImageLoadPromise;
   let advertRevealed = false;
   let previouslyFocusedElement = null;
 
@@ -37,15 +40,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const showAdvert = () => {
-    if (!modal || advertRevealed || advertIsHidden()) return;
-    advertRevealed = true;
-    window.clearTimeout(advertTimer);
+  const prepareAdvertImage = () => {
+    if (!advertImage?.dataset.src) return Promise.resolve();
+    if (advertImageLoadPromise) return advertImageLoadPromise;
+
+    advertImageLoadPromise = new Promise((resolve) => {
+      const finishLoading = () => resolve();
+      advertImage.addEventListener("load", finishLoading, { once: true });
+      advertImage.addEventListener("error", finishLoading, { once: true });
+      advertImage.src = advertImage.dataset.src;
+      advertImage.removeAttribute("data-src");
+      if (advertImage.complete) finishLoading();
+    });
+
+    return advertImageLoadPromise;
+  };
+
+  const revealAdvert = () => {
+    if (!modal) return;
     previouslyFocusedElement = document.activeElement;
     modal.classList.add("show");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
     window.setTimeout(() => closeAdvertButton?.focus(), 80);
+  };
+
+  const showAdvert = () => {
+    if (!modal || advertRevealed || advertIsHidden()) return;
+    advertRevealed = true;
+    window.clearTimeout(advertTimer);
+    window.clearTimeout(advertImageTimer);
+    prepareAdvertImage().finally(revealAdvert);
   };
 
   const closeAdvert = ({ remember = true } = {}) => {
@@ -60,6 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if (modal && !advertIsHidden()) {
+    // Load the flyer after critical page content, then display it later.
+    advertImageTimer = window.setTimeout(prepareAdvertImage, 2500);
     advertTimer = window.setTimeout(showAdvert, 8000);
 
     const showAfterMeaningfulScroll = () => {
@@ -261,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* Register the offline-capable service worker after the page has loaded. */
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/service-worker.js").catch(() => {
+    navigator.serviceWorker.register("service-worker.js").catch(() => {
       // The website remains fully usable when service workers are unsupported or blocked.
     });
   });

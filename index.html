@@ -30,10 +30,7 @@
   <meta content="https://campbellweb.co.za/images/og-image.jpg" name="twitter:image"/>
   <link href="images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
   <link href="images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-  <link href="images/favicon.png" rel="shortcut icon" type="image/png"/>
   <link href="images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
-  <link href="images/pwa-192.png" rel="icon" sizes="192x192" type="image/png"/>
-  <link href="images/pwa-512.png" rel="icon" sizes="512x512" type="image/png"/>
   <meta content="yes" name="mobile-web-app-capable"/>
   <meta content="yes" name="apple-mobile-web-app-capable"/>
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
@@ -42,10 +39,11 @@
   <!-- FAVICONS AND PWA SETTINGS -->
   <link href="site.webmanifest" rel="manifest"/>
   <link as="image" href="hero.webp" rel="preload" type="image/webp"/>
+  <link href="//cdnjs.cloudflare.com" rel="dns-prefetch"/>
   <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com" rel="preconnect"/>
 
   <!-- MAIN STYLESHEET -->
-  <link href="style.css?v=20260802-layout-cleanup" rel="stylesheet"/>
+  <link href="style.css?v=20260804-laceys-place" rel="stylesheet"/>
 
   <!-- DESKTOP NAVIGATION OVERRIDE
        Shows the navigation links permanently on tablet/desktop screens.
@@ -189,7 +187,7 @@
      &times;
     </button>
     <div class="adv-image-container">
-     <img alt="CampbellWeb Discount Flyer" class="adv-popup-img" height="1492" src="images/flyer.webp" width="1054"/>
+     <img alt="CampbellWeb Discount Flyer" class="adv-popup-img" data-src="images/flyer.webp" decoding="async" fetchpriority="low" height="1492" width="1054"/>
     </div>
     <div class="adv-action-row">
      <a class="adv-claim-btn" href="#contact" id="advCtaLink">
@@ -1660,6 +1658,48 @@
        </div>
       </div>
      </article>
+     <article aria-label="Project 8 of 10: Lacey&rsquo;s Place" class="project-card">
+      <div class="project-image-wrap">
+       <img alt="Lacey's Place guesthouse website showing room options" decoding="async" height="486" loading="lazy" sizes="(max-width: 900px) calc(100vw - 72px), 520px" src="images/projects/project8-1100.webp" srcset="images/projects/project8-640.webp 640w, images/projects/project8-1100.webp 1100w" width="1100"/>
+      </div>
+      <div class="project-caption">
+       <p class="project-category">
+        Guesthouse &amp; Accommodation
+       </p>
+       <h3>
+        Lacey&rsquo;s Place
+       </h3>
+       <p class="project-description">
+        A colourful, welcoming guesthouse website designed to showcase room options, nightly rates, amenities and booking policies while making enquiries and reservations easy on any device.
+       </p>
+       <ul aria-label="Features included" class="project-features">
+        <li>
+         Room and rate listings
+        </li>
+        <li>
+         Amenities section
+        </li>
+        <li>
+         Booking policies
+        </li>
+        <li>
+         Mobile-friendly contact options
+        </li>
+       </ul>
+       <div class="project-actions">
+        <a class="project-btn project-btn-primary" href="https://campbellweb92.github.io/laceys-place/" rel="noopener noreferrer" target="_blank">
+         <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square">
+         </i>
+         View Live Website
+        </a>
+        <a class="project-btn project-btn-secondary quote-link" data-service="A website similar to Lacey's Place" href="#enquiry">
+         <i aria-hidden="true" class="fa-solid fa-paper-plane">
+         </i>
+         Request Similar Website
+        </a>
+       </div>
+      </div>
+     </article>
      <article aria-label="Project 9 of 10: Ryan Massage Melrose" class="project-card">
       <div class="project-image-wrap">
        <img alt="Ryan Massage Melrose mobile website" decoding="async" height="486" loading="lazy" sizes="(max-width: 900px) calc(100vw - 72px), 520px" src="images/projects/project9-1100.webp" srcset="images/projects/project9-640.webp 640w, images/projects/project9-1100.webp 1100w" width="1100"/>
@@ -1704,7 +1744,7 @@
      </article>
      <article aria-label="Project 10 of 10: Lazy Larry&rsquo;s Coffee Shop" class="project-card">
       <div class="project-image-wrap">
-       <img alt="Lazy Larry's Coffee Shop website" decoding="async" height="488" loading="lazy" sizes="(max-width: 900px) calc(100vw - 72px), 520px" src="images/projects/project10-1100.webp" srcset="images/projects/project10-640.webp 640w, images/projects/project10-1100.webp 1100w" width="1100"/>
+       <img alt="Lazy Larry's Coffee Shop website" decoding="async" height="484" loading="lazy" sizes="(max-width: 900px) calc(100vw - 72px), 520px" src="images/projects/project10-1100.webp" srcset="images/projects/project10-640.webp 640w, images/projects/project10-1100.webp 1100w" width="1100"/>
       </div>
       <div class="project-caption">
        <p class="project-category">
@@ -1946,7 +1986,7 @@
      </div>
      <div class="business-card-content">
       <header class="business-card-brand">
-       <img alt="CampbellWeb" class="business-card-logo" height="480" src="images/logo2.webp" width="720"/>
+       <img alt="CampbellWeb" class="business-card-logo" decoding="async" fetchpriority="low" height="480" loading="lazy" src="images/logo2.webp" width="720"/>
        <p>
         Professional, affordable and mobile-friendly websites designed to help your business grow.
        </p>
@@ -2330,7 +2370,7 @@
   <a aria-label="Back to top" class="back-to-top" href="#" id="backToTop">
    &uarr;
   </a>
-  <script defer="" src="script.js?v=20260802-layout-cleanup">
+  <script defer="" src="script.js?v=20260804-laceys-place">
   </script>
  </body>
 </html>

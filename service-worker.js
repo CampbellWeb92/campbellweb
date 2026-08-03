@@ -1,20 +1,21 @@
 "use strict";
 
-const CACHE_NAME = "campbellweb-shell-2026-08-03-app-icon-refresh";
-const OFFLINE_PAGE = "/offline.html";
+const CACHE_NAME = "campbellweb-shell-2026-08-04-laceys-place";
+const scopeUrl = (path) => new URL(path, self.registration.scope).toString();
+const OFFLINE_PAGE = scopeUrl("offline.html");
 const CORE_ASSETS = [
-  "/",
-  "/index.html",
-  "/offline.html",
-  "/style.css",
-  "/script.js",
-  "/site.webmanifest",
-  "/hero.webp",
-  "/images/logo.webp",
-  "/images/pwa-192.png",
-  "/images/pwa-512.png",
-  "/images/pwa-maskable-192.png",
-  "/images/pwa-maskable-512.png"
+  scopeUrl("./"),
+  scopeUrl("index.html"),
+  OFFLINE_PAGE,
+  scopeUrl("style.css?v=20260804-laceys-place"),
+  scopeUrl("script.js?v=20260804-laceys-place"),
+  scopeUrl("site.webmanifest"),
+  scopeUrl("hero.webp"),
+  scopeUrl("images/logo.webp"),
+  scopeUrl("images/pwa-192.png"),
+  scopeUrl("images/pwa-512.png"),
+  scopeUrl("images/pwa-maskable-192.png"),
+  scopeUrl("images/pwa-maskable-512.png")
 ];
 
 self.addEventListener("install", (event) => {
