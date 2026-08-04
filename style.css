@@ -24,7 +24,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 155px;
+  scroll-padding-top: var(--sticky-header-offset, 155px);
 }
 
 body {
@@ -65,7 +65,7 @@ h2 {
   position: relative;
   width: min(var(--content-width), 100%);
   margin: 0 auto;
-  scroll-margin-top: 90px;
+  scroll-margin-top: var(--sticky-header-offset, 90px);
   padding: clamp(64px, 8vw, 104px) 20px;
 }
 
@@ -456,6 +456,10 @@ justify-content: center;
   pointer-events: auto;
   transform: translateY(0);
   transition-delay: 0s;
+}
+
+.nav-links.is-jump-closing {
+  transition: none !important;
 }
 
 .nav-links a {
@@ -2014,7 +2018,7 @@ textarea:focus-visible { outline: 3px solid rgba(242,210,107,.72); outline-offse
   .nav-links { width: min(100%, 360px); grid-template-columns: 1fr; gap: 7px; }
   .nav-links.is-open { max-height: min(520px, calc(100vh - 125px)); padding-top: 3px; }
   .nav-links a { min-height: 40px; font-size: 0.72rem; }
-  html { scroll-padding-top: 125px; }
+  html { scroll-padding-top: var(--sticky-header-offset, 125px); }
   body { background-attachment: scroll; }
   .main-content > section:not(.hero) { padding: 58px 16px; }
   .logo-img { width: 110px; }
@@ -2334,12 +2338,10 @@ textarea:focus-visible { outline: 3px solid rgba(242,210,107,.72); outline-offse
 }
 
 
-/* Performance enhancement: defer layout and paint for off-screen page sections. */
-@supports (content-visibility: auto) {
-  .main-content > section:not(.hero) {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 900px;
-  }
+/* Keep every section in normal layout flow so anchor positions remain exact. */
+.main-content > section:not(.hero) {
+  content-visibility: visible;
+  contain-intrinsic-size: none;
 }
 
 /* =========================================================
@@ -2589,7 +2591,13 @@ body {
     linear-gradient(180deg, #071827 0%, #0b2135 48%, #07131f 100%);
 }
 
-html { scroll-padding-top: 96px; }
+html { scroll-padding-top: var(--sticky-header-offset, 96px); }
+
+.main-content > section[id],
+#top,
+#main-content {
+  scroll-margin-top: var(--sticky-header-offset, 96px);
+}
 
 .main-content > section:not(.hero) {
   padding: var(--section-padding) 24px;
@@ -2982,7 +2990,7 @@ html { scroll-padding-top: 96px; }
 
 @media (max-width: 700px) {
   :root { --section-padding: 62px; }
-  html { scroll-padding-top: 82px; }
+  html { scroll-padding-top: var(--sticky-header-offset, 82px); }
   .hero { min-height: 620px; padding-inline: 16px; }
   .hero-content { padding: 32px 20px; border-radius: 20px; }
   .benefits-grid,

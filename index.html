@@ -40,7 +40,7 @@
   <link href="site.webmanifest" rel="manifest"/>
   <link as="image" href="hero.webp" rel="preload" type="image/webp"/>
 <!-- MAIN STYLESHEET -->
-  <link href="style.css?v=20260804-project12" rel="stylesheet"/>
+  <link href="style.css?v=20260804-navfix" rel="stylesheet"/>
 
   <!-- DESKTOP NAVIGATION OVERRIDE
        Shows the navigation links permanently on tablet/desktop screens.
@@ -48,7 +48,7 @@
   <style>
    @media (min-width: 769px) {
     html {
-     scroll-padding-top: 112px;
+     scroll-padding-top: var(--sticky-header-offset, 112px);
     }
 
     .theme-header .nav-container {
@@ -125,7 +125,7 @@
 
    @media (min-width: 1100px) {
     html {
-     scroll-padding-top: 96px;
+     scroll-padding-top: var(--sticky-header-offset, 96px);
     }
 
     .theme-header .nav-links {
@@ -2424,7 +2424,7 @@
   <a aria-label="Back to top" class="back-to-top" href="#top" id="backToTop">
    &uarr;
   </a>
-  <script defer="" src="script.js?v=20260804-project12">
+  <script defer="" src="script.js?v=20260804-navfix">
   </script>
  </body>
 </html>

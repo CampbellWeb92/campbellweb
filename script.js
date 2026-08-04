@@ -125,30 +125,43 @@ document.addEventListener("DOMContentLoaded", () => {
   dismissAdvertButton?.addEventListener("click", () => closeAdvert());
   advertCallToAction?.addEventListener("click", () => closeAdvert());
 
-  /* Shared desktop and mobile dropdown navigation. */
+  /* Shared desktop and mobile navigation. */
+  const header = document.querySelector(".theme-header");
   const navToggle = document.getElementById("navToggle");
   const primaryNavigation = document.getElementById("primaryNavigation");
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  const setNavigation = (open) => {
+  const updateHeaderOffset = () => {
+    const headerHeight = Math.ceil(header?.getBoundingClientRect().height || 0);
+    document.documentElement.style.setProperty("--sticky-header-offset", `${headerHeight + 10}px`);
+  };
+
+  const setNavigation = (open, { instant = false } = {}) => {
     if (!navToggle || !primaryNavigation) return;
+
+    if (instant) primaryNavigation.classList.add("is-jump-closing");
     navToggle.setAttribute("aria-expanded", String(open));
     primaryNavigation.classList.toggle("is-open", open);
 
     const icon = navToggle.querySelector("i");
     icon?.classList.toggle("fa-bars", !open);
     icon?.classList.toggle("fa-xmark", open);
+
+    if (instant) {
+      // Collapse before measuring the anchor so the open menu cannot shift the destination.
+      void primaryNavigation.offsetHeight;
+      window.requestAnimationFrame(() => primaryNavigation.classList.remove("is-jump-closing"));
+    }
+
+    updateHeaderOffset();
   };
 
-  const closeNavigation = () => setNavigation(false);
+  const closeNavigation = (options) => setNavigation(false, options);
 
   if (navToggle && primaryNavigation) {
     navToggle.addEventListener("click", () => {
       const isOpen = navToggle.getAttribute("aria-expanded") === "true";
       setNavigation(!isOpen);
-    });
-
-    primaryNavigation.addEventListener("click", (event) => {
-      if (event.target.closest("a")) closeNavigation();
     });
 
     document.addEventListener("click", (event) => {
@@ -161,17 +174,77 @@ document.addEventListener("DOMContentLoaded", () => {
       () => {
         if (window.innerWidth === previousViewportWidth) return;
         previousViewportWidth = window.innerWidth;
-        closeNavigation();
+        closeNavigation({ instant: true });
+        updateHeaderOffset();
       },
       { passive: true }
     );
   }
 
-  /* Smooth home and back-to-top links. */
-  document.querySelector(".logo")?.addEventListener("click", (event) => {
+  if (header && "ResizeObserver" in window) {
+    new ResizeObserver(updateHeaderOffset).observe(header);
+  }
+  updateHeaderOffset();
+
+  const getPageTarget = (hash) => {
+    if (!hash || hash === "#") return null;
+    try {
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+    } catch {
+      return null;
+    }
+  };
+
+  const scrollToPageTarget = (target, hash, { smooth = true, updateHistory = true } = {}) => {
+    if (!target) return;
+
+    const isTopTarget = target.id === "top" || target.id === "main-content";
+    const headerHeight = Math.ceil(header?.getBoundingClientRect().height || 0);
+    const destination = isTopTarget
+      ? 0
+      : Math.max(0, Math.round(window.scrollY + target.getBoundingClientRect().top - headerHeight - 10));
+
+    window.scrollTo({
+      top: destination,
+      behavior: smooth && !reducedMotionQuery.matches ? "smooth" : "auto"
+    });
+
+    if (updateHistory && hash && window.location.hash !== hash) {
+      window.history.pushState(null, "", hash);
+    }
+  };
+
+  /* Use one offset-aware handler for every same-page link. */
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
+    }
+
+    const hash = link.getAttribute("href");
+    const target = getPageTarget(hash);
+    if (!target) return;
+
     event.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    closeNavigation({ instant: true });
+
+    // Wait for the collapsed header layout to settle before measuring the section.
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => scrollToPageTarget(target, hash));
+    });
   });
+
+  /* Correct direct links such as index.html#projects after all assets have loaded. */
+  window.addEventListener(
+    "load",
+    () => {
+      const target = getPageTarget(window.location.hash);
+      if (!target) return;
+      closeNavigation({ instant: true });
+      window.requestAnimationFrame(() => scrollToPageTarget(target, window.location.hash, { smooth: false, updateHistory: false }));
+    },
+    { once: true }
+  );
 
   const backToTopButton = document.getElementById("backToTop");
   if (backToTopButton) {
@@ -180,10 +253,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
     updateBackToTopVisibility();
-    backToTopButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
   }
 
   /* Service quote links. */
