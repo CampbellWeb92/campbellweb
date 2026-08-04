@@ -126,46 +126,25 @@ document.addEventListener("DOMContentLoaded", () => {
   advertCallToAction?.addEventListener("click", () => closeAdvert());
 
   /* Shared desktop and mobile dropdown navigation. */
-  const navToggle = document.getElementById("navToggle");
-  const primaryNavigation = document.getElementById("primaryNavigation");
-
-  const setNavigation = (open) => {
-    if (!navToggle || !primaryNavigation) return;
-    navToggle.setAttribute("aria-expanded", String(open));
-    primaryNavigation.classList.toggle("is-open", open);
-
-    const icon = navToggle.querySelector("i");
-    icon?.classList.toggle("fa-bars", !open);
-    icon?.classList.toggle("fa-xmark", open);
-  };
-
-  const closeNavigation = () => setNavigation(false);
-
-  if (navToggle && primaryNavigation) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = navToggle.getAttribute("aria-expanded") === "true";
-      setNavigation(!isOpen);
+  document.querySelectorAll('nav a').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    // Adjust the 80 value to match your navbar height
+    const navbarHeight = 80; 
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+    
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
     });
+  });
+});
 
-    primaryNavigation.addEventListener("click", (event) => {
-      if (event.target.closest("a")) closeNavigation();
-    });
-
-    document.addEventListener("click", (event) => {
-      if (!event.target.closest(".nav-container")) closeNavigation();
-    });
-
-    let previousViewportWidth = window.innerWidth;
-    window.addEventListener(
-      "resize",
-      () => {
-        if (window.innerWidth === previousViewportWidth) return;
-        previousViewportWidth = window.innerWidth;
-        closeNavigation();
-      },
-      { passive: true }
-    );
-  }
 
   /* Smooth home and back-to-top links. */
   document.querySelector(".logo")?.addEventListener("click", (event) => {
