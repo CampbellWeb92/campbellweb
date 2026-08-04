@@ -1,16 +1,16 @@
 "use strict";
 
-const CACHE_NAME = "campbellweb-shell-20260804-speed-links";
+const CACHE_NAME = "campbellweb-shell-20260804-testimonials-layout";
 const scopeUrl = (path) => new URL(path, self.registration.scope).toString();
 const OFFLINE_PAGE = scopeUrl("offline.html");
 const CORE_ASSETS = [
   scopeUrl("./"),
   scopeUrl("index.html"),
   OFFLINE_PAGE,
-  scopeUrl("style.css?v=20260804-speed-links"),
-  scopeUrl("script.js?v=20260804-speed-links"),
+  scopeUrl("style.css?v=20260804-testimonials-layout"),
+  scopeUrl("script.js?v=20260804-testimonials-layout"),
   scopeUrl("site.webmanifest"),
-  scopeUrl("assets/icons.css?v=20260804-speed-links"),
+  scopeUrl("assets/icons.css?v=20260804-testimonials-layout"),
   scopeUrl("assets/fonts/fa-solid-subset.woff2"),
   scopeUrl("assets/fonts/fa-brands-subset.woff2"),
   scopeUrl("hero.webp"),
