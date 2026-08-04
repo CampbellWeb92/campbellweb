@@ -2592,8 +2592,6 @@ body {
 html { scroll-padding-top: 96px; }
 
 .main-content > section:not(.hero) {
-  width: 100% !important;
-  max-width: none !important;
   padding: var(--section-padding) 24px;
 }
 
