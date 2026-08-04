@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const targetElement = document.querySelector(targetId);
     
     // Adjust the 80 value to match your navbar height
-    const navbarHeight = 80; 
+    const navbarHeight = 45; 
     const elementPosition = targetElement.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
     
