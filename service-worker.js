@@ -1,14 +1,14 @@
 "use strict";
 
-const CACHE_NAME = "campbellweb-shell-2026-08-04-laceys-place";
+const CACHE_NAME = "campbellweb-shell-2026-08-04-digital-card";
 const scopeUrl = (path) => new URL(path, self.registration.scope).toString();
 const OFFLINE_PAGE = scopeUrl("offline.html");
 const CORE_ASSETS = [
   scopeUrl("./"),
   scopeUrl("index.html"),
   OFFLINE_PAGE,
-  scopeUrl("style.css?v=20260804-laceys-place"),
-  scopeUrl("script.js?v=20260804-laceys-place"),
+  scopeUrl("style.css?v=20260804-digital-card"),
+  scopeUrl("script.js?v=20260804-digital-card"),
   scopeUrl("site.webmanifest"),
   scopeUrl("hero.webp"),
   scopeUrl("images/logo.webp"),
