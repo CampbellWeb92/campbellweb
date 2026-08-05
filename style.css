@@ -3060,3 +3060,513 @@ html { scroll-padding-top: var(--sticky-header-offset, 96px); }
 @media (max-width: 900px) {
   .about-container { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* =========================================================
+   SIMPLIFIED VISUAL THEME — AUGUST 2026
+   Keeps the existing colours, wording and imagery while
+   reducing shimmer, glow, heavy shadows and oversized effects.
+   ========================================================= */
+
+:root {
+  --card-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  --gold-glow: none;
+  --radius-small: 9px;
+  --radius-medium: 14px;
+  --radius-large: 18px;
+  --section-padding: clamp(60px, 6vw, 82px);
+}
+
+body {
+  background: #071827;
+}
+
+h1,
+h2,
+.business-card-heading h2 {
+  text-shadow: none;
+}
+
+.main-content > section:not(.hero)::after {
+  width: min(620px, calc(100% - 48px));
+  background: rgba(212, 175, 55, 0.24);
+}
+
+.title-divider-line,
+.section-heading h2::after,
+.contact-header h2::after,
+.business-card-heading h2::after,
+.trust-highlights-heading h2::after,
+.about-content h2::after,
+.footer-contact-copy h2::after {
+  width: 54px;
+  height: 2px;
+  background: var(--accent-gold);
+}
+
+.section-heading,
+.pricing-header-container,
+.business-card-heading {
+  margin-bottom: clamp(28px, 3vw, 40px);
+}
+
+.section-intro,
+.trust-highlights-heading > p:last-child,
+.about-lead,
+.footer-contact-copy > p:not(.section-label) {
+  line-height: 1.7;
+}
+
+/* Header and navigation */
+.theme-header {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.58);
+  background: #07131f;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: none;
+}
+
+.logo-img {
+  filter: none;
+}
+
+.logo:hover .logo-img {
+  transform: none;
+}
+
+.nav-toggle,
+.theme-header .nav-links .nav-contact-button {
+  background: var(--accent-gold);
+  box-shadow: none;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus-visible,
+.nav-toggle[aria-expanded="true"],
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  transform: none;
+  box-shadow: none;
+}
+
+@media (min-width: 769px) {
+  .theme-header .nav-links a {
+    border-radius: 7px;
+    background: transparent;
+  }
+
+  .theme-header .nav-links a:hover,
+  .theme-header .nav-links a:focus-visible {
+    background: rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Hero */
+.hero {
+  min-height: clamp(540px, 72vh, 680px);
+  padding: clamp(56px, 7vw, 82px) 20px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.58);
+  background:
+    linear-gradient(rgba(7, 24, 39, 0.76), rgba(7, 19, 31, 0.9)),
+    url("hero.webp") center / cover no-repeat;
+}
+
+.hero-content {
+  width: min(700px, 92%);
+  padding: clamp(26px, 3.5vw, 38px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  background: rgba(7, 24, 39, 0.88);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
+  backdrop-filter: none;
+}
+
+.hero-content::before {
+  content: none;
+  animation: none;
+}
+
+.hero h1 {
+  font-size: clamp(2.7rem, 5.8vw, 4.7rem);
+}
+
+.hero h2 {
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+}
+
+.hero p {
+  margin-top: 14px;
+  font-size: clamp(0.96rem, 1.7vw, 1.15rem);
+}
+
+.hero-action-container {
+  margin-top: 24px;
+  gap: 11px;
+}
+
+/* Buttons */
+.btn,
+.hero-btn,
+.adv-claim-btn {
+  min-height: 43px;
+  padding: 10px 20px;
+  border-radius: 9px;
+  box-shadow: none;
+  letter-spacing: 0.65px;
+}
+
+.btn:hover,
+.hero-btn:hover,
+.adv-claim-btn:hover,
+.btn:focus-visible,
+.hero-btn:focus-visible,
+.adv-claim-btn:focus-visible,
+.project-btn:hover,
+.project-btn:focus-visible,
+.back-to-top:hover {
+  transform: none;
+}
+
+.btn-primary,
+.btn-gold {
+  background: var(--accent-gold);
+  box-shadow: none;
+}
+
+.btn-primary:hover,
+.btn-gold:hover {
+  box-shadow: none;
+}
+
+/* Calm section bands */
+.website-benefits-section { background: #07131f; }
+.trust-highlights { background: #0b2135; }
+.about-section { background: #071827; }
+.process-section { background: #0a2135; }
+.services-section { background: #10283c; }
+.payment-terms-section { background: #07131f; }
+.projects-section { background: #0b2135; }
+.testimonials-section { background: #071827; }
+.faq-section { background: #0a2135; }
+.enquiry-section { background: #071827; }
+.business-card-section {
+  background: #0b2135;
+  background-attachment: scroll;
+}
+
+/* Shared cards */
+.benefit-card,
+.trust-highlights article,
+.about-detail-card,
+.process-card,
+.payment-option,
+.testimonial-card,
+.faq-list details,
+.turnaround-note,
+.benefits-summary,
+.highlight-box,
+.renewal-note {
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: none;
+}
+
+.benefit-card,
+.process-card {
+  padding: 24px 22px;
+}
+
+.benefit-card,
+.trust-highlights article,
+.about-detail-card,
+.card,
+.project-card,
+.business-card-button {
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.benefit-card:hover,
+.trust-highlights article:hover,
+.about-detail-card:hover,
+.card:hover,
+.project-card:hover,
+.project-card:focus-within,
+.business-card-button:hover,
+.business-card-button:focus-visible {
+  transform: none;
+  box-shadow: none;
+}
+
+.benefit-card:hover,
+.trust-highlights article:hover,
+.about-detail-card:hover {
+  border-color: rgba(212, 175, 55, 0.46);
+  background: rgba(255, 255, 255, 0.065);
+}
+
+.benefit-card span,
+.package-heading-icon,
+.about-detail-card > i,
+.process-card > i {
+  background: var(--accent-gold);
+  box-shadow: none;
+}
+
+.trust-highlights article,
+.trust-highlights article:hover {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.trust-highlights article > i,
+.trust-highlights article.additional-benefit > i {
+  border-radius: 10px;
+  background: rgba(212, 175, 55, 0.12);
+  box-shadow: none;
+}
+
+.about-photo-frame {
+  padding: 7px;
+  border: 1px solid rgba(212, 175, 55, 0.42);
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+.about-photo-frame::before {
+  content: none;
+}
+
+.about-photo-frame img {
+  border-radius: 12px;
+}
+
+.about-photo-badge {
+  right: -10px;
+  border-radius: 10px;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.2);
+}
+
+.about-detail-card:hover {
+  transform: none;
+}
+
+.process-number {
+  color: rgba(255, 255, 255, 0.12);
+}
+
+/* Service packages */
+.card {
+  padding: 23px 21px;
+  border-top-width: 3px;
+  border-radius: 13px;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.16);
+}
+
+.card:hover {
+  border-color: rgba(212, 175, 55, 0.48);
+}
+
+.package-heading-icon {
+  border-radius: 9px;
+  color: var(--primary-blue);
+}
+
+/* Payment terms */
+.payment-option {
+  padding: 23px;
+}
+
+.highlight-box {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+/* Portfolio */
+.projects-grid {
+  gap: 20px;
+}
+
+.project-card {
+  border: 1px solid rgba(212, 175, 55, 0.42);
+  border-radius: 13px;
+  background: #071b2d;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  border-color: rgba(212, 175, 55, 0.7);
+}
+
+.project-image-wrap {
+  padding: 10px;
+  background: #edf1f5;
+}
+
+.project-card img {
+  filter: none;
+}
+
+.project-caption {
+  padding: 22px 20px;
+  background: #0b2d4b;
+}
+
+.project-caption h3 {
+  font-size: 1.3rem;
+}
+
+.project-caption h3::after {
+  width: 42px;
+  height: 2px;
+}
+
+.project-features li {
+  padding: 5px 8px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.project-btn,
+.project-link-note {
+  border-radius: 7px;
+}
+
+/* FAQ, CTA and form */
+.faq-list details[open] summary {
+  background: rgba(212, 175, 55, 0.055);
+}
+
+.main-content > .primary-cta-section {
+  background: #071827;
+}
+
+.primary-cta-content {
+  padding: clamp(26px, 3.2vw, 36px);
+  border-radius: 15px;
+  background: var(--accent-gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.footer-contact-form {
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.footer-contact-form input,
+.footer-contact-form select,
+.footer-contact-form textarea {
+  border-radius: 8px;
+}
+
+.footer-contact-form input:focus,
+.footer-contact-form select:focus,
+.footer-contact-form textarea:focus {
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.13);
+}
+
+/* Digital business card */
+.business-card-heading .section-intro {
+  color: #d7e5f3;
+  font-weight: 400;
+}
+
+.business-card-container {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 18px;
+  background:
+    rgba(255, 255, 255, 0.74)
+    url("images/background.webp") center / cover no-repeat;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+}
+
+.business-card-container::before,
+.business-card-container::after,
+.business-card-button::before,
+.business-card-icon::after {
+  content: none;
+  animation: none;
+}
+
+.business-card-overlay {
+  background: rgba(255, 255, 255, 0.17);
+}
+
+.business-card-logo {
+  animation: none;
+  filter: none;
+}
+
+.business-card-button {
+  min-height: 72px;
+  border-left-width: 3px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 5px 14px rgba(10, 43, 102, 0.11);
+}
+
+.business-card-button:hover,
+.business-card-button:focus-visible {
+  border-color: rgba(212, 175, 55, 0.75);
+}
+
+.business-card-icon {
+  border-radius: 11px;
+  box-shadow: none;
+}
+
+.phone-icon,
+.website-icon { background: #0b4fa3; }
+.whatsapp-icon { background: #1ca64b; }
+.email-icon { background: #d78a13; }
+.instagram-icon { background: #a43d83; }
+
+.business-card-save-contact,
+.business-card-footer {
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.business-card-footer {
+  background: #0b397f;
+}
+
+/* Popup and utility controls */
+.adv-content {
+  border-radius: 14px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4);
+}
+
+.back-to-top {
+  width: 44px;
+  height: 44px;
+  border-width: 1px;
+  box-shadow: none;
+}
+
+/* Keep motion restrained for everyone, not only reduced-motion users. */
+.business-card-logo,
+.business-card-container::before,
+.business-card-container::after,
+.business-card-button::before,
+.business-card-icon::after,
+.hero-content::before {
+  animation: none !important;
+}
+
+@media (max-width: 700px) {
+  :root { --section-padding: 54px; }
+
+  .hero {
+    min-height: 560px;
+  }
+
+  .hero-content {
+    width: min(94%, 540px);
+    padding: 24px 17px;
+    border-radius: 14px;
+  }
+
+  .business-card-container {
+    border-radius: 15px;
+  }
+}

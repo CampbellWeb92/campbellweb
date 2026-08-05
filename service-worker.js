@@ -1,13 +1,13 @@
 "use strict";
 
-const CACHE_NAME = "campbellweb-shell-20260805-donna-card-image";
+const CACHE_NAME = "campbellweb-shell-20260805-simplified-design";
 const scopeUrl = (path) => new URL(path, self.registration.scope).toString();
 const OFFLINE_PAGE = scopeUrl("offline.html");
 const CORE_ASSETS = [
   scopeUrl("./"),
   scopeUrl("index.html"),
   OFFLINE_PAGE,
-  scopeUrl("style.css?v=20260804-navfix"),
+  scopeUrl("style.css?v=20260805-simplified-design"),
   scopeUrl("script.js?v=20260804-navfix"),
   scopeUrl("site.webmanifest"),
   scopeUrl("assets/icons.css?v=20260804-project12"),
