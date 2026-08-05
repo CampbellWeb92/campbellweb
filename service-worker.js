@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "campbellweb-shell-20260804-fruitstop-image";
+const CACHE_NAME = "campbellweb-shell-20260805-donna-card-image";
 const scopeUrl = (path) => new URL(path, self.registration.scope).toString();
 const OFFLINE_PAGE = scopeUrl("offline.html");
 const CORE_ASSETS = [
