@@ -1810,6 +1810,32 @@ justify-content: center;
 .testimonial-card strong { color: #fff; }
 .testimonial-card span { margin-top: 3px; color: #aebfd1; font-size: .85rem; line-height: 1.5; }
 
+/* Testimonial star ratings */
+.testimonial-card > .testimonial-rating {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonial-rating .stars {
+  display: inline-block;
+  margin: 0;
+  color: var(--accent-gold);
+  font-size: 1.15rem;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.testimonial-rating .rating-number {
+  display: inline-block;
+  margin: 0;
+  color: #d9e4f0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
 /* FAQ */
 .faq-section {
   width: 100% !important;
