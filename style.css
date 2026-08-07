@@ -3361,6 +3361,17 @@ h2,
 
 .project-caption h3 {
   font-size: 1.3rem;
+  min-height: 3.1em;
+}
+
+/* Keep portfolio card content aligned without forcing a rigid card height. */
+.project-description {
+  min-height: 7.1em;
+}
+
+.project-features {
+  min-height: 72px;
+  align-content: flex-start;
 }
 
 .project-caption h3::after {
@@ -3716,6 +3727,13 @@ h2,
 
   .project-image-wrap {
     aspect-ratio: 4 / 3;
+  }
+
+  /* Let project cards size naturally once they stack on smaller screens. */
+  .project-caption h3,
+  .project-description,
+  .project-features {
+    min-height: 0;
   }
 
   .business-card-save-contact {
