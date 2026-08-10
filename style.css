@@ -2564,6 +2564,15 @@ body.modal-open { overflow: hidden; }
 .more-benefits[open] > summary i { transform: rotate(180deg); }
 .additional-benefits-grid { margin-top: 26px; }
 
+/* Project gallery accordion: matches the View More Benefits control */
+.more-projects {
+  width: 100%;
+  margin-top: 32px;
+}
+.more-projects .additional-projects-grid {
+  margin-top: 26px;
+}
+
 /* Package audience and price clarity */
 .package-best-for {
   width: fit-content;
